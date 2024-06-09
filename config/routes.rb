@@ -17,13 +17,20 @@ Rails.application.routes.draw do
 
   scope module: :user do
     
-  resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
-    resources :post_comments, only: [:create, :destroy]
-    resource :favorites, only: [:create, :destroy]
-  end
+    resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
+      resources :post_comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
+    end
+    
+    resources :users, only: [:index, :show, :update, :edit] do
+      resource :relationships, only: [:create, :destroy]
+    	get "followings" => "relationships#followings", as: "followings"
+    	get "followers" => "relationships#followers", as: "followers"
+    end
   
-  resources :users, only: [:index, :show, :update, :edit]
-  
+    resources :messages, only: [:create]
+    resources :rooms, only: [:create,:show]
+    
   end
 
 end

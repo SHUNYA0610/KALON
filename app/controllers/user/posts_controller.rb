@@ -12,6 +12,10 @@ class User::PostsController < ApplicationController
   end
   
   def show
+    @post_detail = Post.find(params[:id])
+    unless ViewCount.find_by(user_id: current_user.id, post_id: @post_detail.id)
+      current_user.view_counts.create(post_id: @post_detail.id)
+    end
     @post = Post.find(params[:id])
     @user = @post.user
     @new_post = Post.new

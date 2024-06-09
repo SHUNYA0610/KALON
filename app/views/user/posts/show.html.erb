@@ -23,6 +23,7 @@
     <p>説明：<%= @post.caption %></p>
     <p>ユーザーネーム：<%= @user.name %></p>
     <span id="favorite_btn_<%= @post.id %>"><%= render "user/favorites/btn", post: @post %></span>
+        <p class="view-count">👀数: <%= @post_detail.view_counts.count %></p>
     <span id="comment_counter"><%= render "user/post_comments/counter", book: @book %></span>
         <% if @user == current_user %>
         <%= link_to "Edit", edit_post_path(@post)%>

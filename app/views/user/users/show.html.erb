@@ -20,37 +20,20 @@
 <% end %>
 </div>
 
-
-    <!--ユーザーが投稿した本の一覧機能-->
-<div class="card w-50 mx-auto mt-4 shadow-lg">
+<div class="container">
   <div class="row">
-    <div class="col-3"> 
-      <%= image_tag @user.get_profile_image(100,100), class: "mt-3 rounded-circle"; %>
+    
+    <div class="col-3">
+      <%= render 'layouts/sidebar' %>
     </div>
-    <div class="col-9">
-      <%= link_to edit_user_path(@user) do %>
-        <i class="fas fa-user-cog"></i>
-      <% end %>
+    
+    <div class="col-7">
+      <%= render 'user/users/info', user: @user, isRoom: @isRoom, roomId: @roomId, room: @room, entry: @entry %>
+      <%= render 'user/posts/index', posts: @posts %>
     </div>
-  </div>
-    <span><%= @user.name %></span>
-    <span><%= @user.introduction %></span>
-
-  <% @posts.each do |post| %>
-  <%= image_tag post.get_image, class: "card-img-top";%>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-1"> 
-          <%= link_to user_path(post.user_id) do %><%= image_tag post.user.get_profile_image(50,50), class: "rounded-circle"; %><% end %>
-        </div>
-            <div class="col-11">
-              <p class="card-title">
-                <%= post.user.name %>
-              </p>
-              <strong><i class="far fa-flag"></i><span><%= link_to post_path(post.id) do %><%= post.shop %></span></strong><% end %>
-              <span><p class="card-text"></p><%= post.caption %></p></span>
-            </div>
-        </div>
-    </div>  
-  <% end %>
+    
+    <div class="col-2">
+    </div>
+    
+  </div>  
 </div>
