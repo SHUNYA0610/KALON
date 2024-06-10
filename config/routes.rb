@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-      
+  
   root to: 'user/homes#top'
   get 'home/about' => 'user/homes#about', as: 'about'
 
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     	get "followers" => "relationships#followers", as: "followers"
     end
   
+    resources :groups, except: [:destroy]
     resources :messages, only: [:create]
     resources :rooms, only: [:create,:show]
     
