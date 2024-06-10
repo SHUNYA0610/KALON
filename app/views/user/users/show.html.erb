@@ -1,17 +1,16 @@
-<投稿機能>
-<div id="postForm" style="display: none;">
-<h2>New Posts</h2>
+<div class="mx-auto" id="postForm" style="display: none;">
+<h2>新しくポスト</h2>
 <%= form_with model: @post do |f| %>
   <div>
-  <%= f.label :img %>
-  <%= f.file_field :image, accept: "image/*" %>
+    <%= f.label :イメージ %>
+    <%= f.file_field :image, accept: "image/*" %>
   </div>
   <div>
-    <%= f.label :shop %>
+    <%= f.label :利用サロン %>
     <%= f.text_field :shop %>
   </div>
   <div>
-    <%= f.label :opinion %>
+    <%= f.label :説明 %>
     <%= f.text_area :caption %>
   </div>
   <div>

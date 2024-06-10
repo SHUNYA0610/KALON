@@ -1,6 +1,5 @@
-<div>
-  <h2>New Posts</h2>
-  <%= form_with model: post do |f| %>
+<h2>新しくポスト</h2>
+<%= form_with model: post do |f| %>
   <div>
     <%= f.label :イメージ %>
     <%= f.file_field :image, accept: "image/*" %>
@@ -10,11 +9,10 @@
     <%= f.text_field :shop %>
   </div>
   <div>
-    <%= f.label :opinion %>
+    <%= f.label :説明 %>
     <%= f.text_area :caption %>
   </div>
   <div>
-    <%= f.submit 'Create Book' %>
+    <%= f.submit "POST"%>
   </div>
-  <% end %>
-</div>
+<% end %>

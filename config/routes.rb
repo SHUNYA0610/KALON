@@ -33,4 +33,8 @@ Rails.application.routes.draw do
     
   end
 
+  namespace :admin do
+      root to: 'homes#top'
+  end
+
 end
