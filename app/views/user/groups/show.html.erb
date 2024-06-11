@@ -1,0 +1,54 @@
+<div class='container'>
+  <div class='row'>
+    
+    <div class='col-3'>
+      <%= render 'layouts/sidebar' %>
+    </div>
+    
+    <div class='col-7'>
+      <%= render 'user/posts/new', post: @post %>
+      <div>
+        <h2>グループ詳細</h2>
+        <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th></th>
+            <th>グループ名</th>
+            <th>紹介文</th>
+            <th>メンバー</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% if @group.image.attached? %>
+            <td><%= image_tag @group.image.variant(resize: "50x50").processed, class: "img-fluid" %></td>
+            <% else %>
+            <td><%= image_tag "no-image.jpg",resize: "50x50",class: "img-fluid" %></td>
+            <% end %>
+            <td><%= @group.name %></td>
+            <td><%= @group.introduction %></td>
+            <% @group.users.each do |user| %>
+　　        <td style="list-style: none;"><%= user.name %></td>
+            <% end %>
+            <td>
+              <% if @group.owner_id == current_user.id %>
+              　　<%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>
+              　　<%= link_to 'Mail',group_new_mail_path(@group), class: "fas fa-paper-plane" %>
+              <% elsif @group.includesUser?(current_user)%>
+              　　<%= link_to 'Leave this group', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
+              <% else %>
+              　　<%= link_to 'Join this group', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class='col-2'>
+    </div>
+    
+  </div>
+</div>
