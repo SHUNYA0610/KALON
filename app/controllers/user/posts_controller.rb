@@ -1,13 +1,13 @@
 class User::PostsController < ApplicationController
   def index
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
+    @post.save!
     redirect_to post_path(@post)
   end
   

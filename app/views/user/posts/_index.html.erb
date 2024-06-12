@@ -1,17 +1,19 @@
 <% posts.each do |post| %>
   <div class="card-list-container py-5">
     <div class="card mt-4 shadow-lg">
-    <%= image_tag post.get_image, class: "card-img-top";%>
+      <% if post.image.attached? %>
+        <%= image_tag post.get_image, class: 'card-img-top';%>
+      <% end %>
       <div class="card-body">
         <div class="row">
-          <div class="col-2"> 
+          <div class="col-2">
             <%= link_to user_path(post.user_id) do %><%= image_tag post.user.get_profile_image(50,50), class: "rounded-circle"; %><% end %>
           </div>
           <div class='col-10'>
             <p class='card-title'>
                   <%= post.user.name %>
                 </p>
-                <strong><i class='far fa-flag'></i><span><%= link_to post_path(post.id) do %><%= post.shop %></span></strong><% end %>
+                <strong><i class="fa-solid fa-shop"></i>　<span><%= link_to post_path(post.id) do %><%= post.shop %></span></strong><% end %>
                 <span><p class='card-text'></p><%= post.caption %></p></span>
                 <% if post.category.present? %>
                   <span><%=link_to post.category,tagsearches_search_path(content: post.category)%></span>
@@ -20,6 +22,6 @@
                 <span><%= render "user/post_comments/counter", post: post %></span>
               </div>
           </div>
-      </div>  
+      </div>
   </div>
 <% end %>

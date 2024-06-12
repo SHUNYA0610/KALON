@@ -1,14 +1,16 @@
 <div>
-  <div>
+  <div class="d-flex justify-content-between">
     <%= image_tag user.get_profile_image(100,100), class: "rounded-circle"; %>
-  </div>
-  <div>
     <% if current_user != user %>
       <%= render 'user/relationships/btn', user: user, options: { class: ""} %></span>
     <% else %>
-      <%= link_to edit_user_path(user) do %>
-        <button type="button" class="btn btn-outline-secondary">プロフィールを編集する</button>
-      <% end %>
+    <%= link_to edit_user_path(user) do %>
+      <button type="button" class="btn btn-outline-secondary">プロフィールを編集する</button>
+    <% end %>
+  </div>
+  <div>
+      <br>
+      <%= link_to "アカウント情報の編集", edit_user_registration_path %>
     <% end %>
 
     <% unless user.id == current_user.id %>
@@ -26,7 +28,7 @@
       <% end %>
     <% end %>
   </div>
-<div>  
+<div>
 <div class="flex-column">
   <div>
     <div>
@@ -36,7 +38,7 @@
       <%= @user.introduction %>
     </div>
   </div>
-  <div> 
+  <div>
     <span><%= link_to @user.followings.count, user_followings_path(@user) %>フォロー中</span>
     <span><%= link_to @user.followers.count, user_followers_path(@user) %>フォロワー</span>
   </div>
