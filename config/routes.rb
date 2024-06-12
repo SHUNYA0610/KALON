@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   
   root to: 'user/homes#top'
   get 'home/about' => 'user/homes#about', as: 'about'
-
+  get "/search", to: "user/searches#search"
+  
   scope module: :user do
     
     resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
@@ -37,10 +38,12 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     resources :rooms, only: [:create,:show]
     
+    get 'tagsearches/search', to: 'tagsearches#search'
+    
   end
 
   namespace :admin do
-      root to: 'homes#top'
+    root to: 'homes#top'
   end
 
 end

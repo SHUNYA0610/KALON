@@ -27,7 +27,7 @@
     <% end %>
   </div>
 <div>  
-<div class='flex-column'>
+<div class="flex-column">
   <div>
     <div>
       <%= @user.name %>
@@ -39,5 +39,5 @@
   <div> 
     <span><%= link_to @user.followings.count, user_followings_path(@user) %>フォロー中</span>
     <span><%= link_to @user.followers.count, user_followers_path(@user) %>フォロワー</span>
-  </div>  
-</div>  
+  </div>
+</div>

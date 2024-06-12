@@ -3,7 +3,8 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy
-  has_many :view_counts, dependent: :destroy  
+  has_many :view_counts, dependent: :destroy
+  validates :category, presence: true
  
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
@@ -16,4 +17,17 @@ class Post < ApplicationRecord
     end
     image
   end
+  
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Post.where(caption: content)
+    elsif method == 'forward'
+      Post.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      Post.where('name LIKE ?', '%' + content)
+    else
+      Post.where('name LIKE ?', '%' + content + '%')
+    end
+  end
+  
 end

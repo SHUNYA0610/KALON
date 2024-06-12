@@ -7,12 +7,15 @@
           <div class="col-2"> 
             <%= link_to user_path(post.user_id) do %><%= image_tag post.user.get_profile_image(50,50), class: "rounded-circle"; %><% end %>
           </div>
-          <div class="col-10">
-            <p class="card-title">
+          <div class='col-10'>
+            <p class='card-title'>
                   <%= post.user.name %>
                 </p>
-                <strong><i class="far fa-flag"></i><span><%= link_to post_path(post.id) do %><%= post.shop %></span></strong><% end %>
-                <span><p class="card-text"></p><%= post.caption %></p></span>
+                <strong><i class='far fa-flag'></i><span><%= link_to post_path(post.id) do %><%= post.shop %></span></strong><% end %>
+                <span><p class='card-text'></p><%= post.caption %></p></span>
+                <% if post.category.present? %>
+                  <span><%=link_to post.category,tagsearches_search_path(content: post.category)%></span>
+                <% end %>
                 <span id="favorite_btn_<%= post.id %>"><%= render "user/favorites/btn", post: post %></span>
                 <span><%= render "user/post_comments/counter", post: post %></span>
               </div>

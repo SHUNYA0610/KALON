@@ -13,6 +13,10 @@
     <%= f.text_area :caption %>
   </div>
   <div>
-    <%= f.submit "POST"%>
+  <%= f.label :カテゴリータグ %>
+  <%= f.text_field :category %>
+  </div>
+  <div>
+    <%= f.submit "ポストする"%>
   </div>
 <% end %>
