@@ -1,7 +1,8 @@
 <div class='container'>
   <div class='row'>
-    
-    <div class='col-3'>
+
+    <%= render "user/posts/post_modal" %>
+    <div class='col-3' style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
       <%= render 'layouts/sidebar' %>
     </div>
     
@@ -21,10 +22,10 @@
         </thead>
         <tbody>
           <tr>
-            <% if @group.image.attached? %>
-            <td><%= image_tag @group.image.variant(resize: "50x50").processed, class: "img-fluid" %></td>
+            <% if @group.group_image.attached? %>
+            <td class="align-middle"><%= image_tag @group.group_image.variant(resize_to_fill: [50, 50]).processed,class: "rounded-circle" %></td>
             <% else %>
-            <td><%= image_tag "no-image.jpg",resize: "50x50",class: "img-fluid" %></td>
+            <td class="align-middle"><%= image_tag "no-image.jpg", size: "50x50",class: "rounded-circle" %></td>
             <% end %>
             <td><%= @group.name %></td>
             <td><%= @group.introduction %></td>
@@ -47,7 +48,8 @@
       </div>
     </div>
     
-    <div class='col-2'>
+    <div class="col-2" style="position: sticky; top: 0; left: 0; height: 100vh;">
+      <%= render "layouts/sidebar_r" %>
     </div>
     
   </div>

@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :view_counts, dependent: :destroy
   has_many :group_users
   has_many :groups, through: :group_users
+  has_many :notifications, dependent: :destroy
   
   has_one_attached :profile_image
   
@@ -23,7 +24,7 @@ class User < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no-image.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    profile_image.variant(resize_to_limit: [width, height]).processed
+    profile_image.variant(resize_to_fill: [width, height]).processed
   end
   
     # フォローしている関連付け

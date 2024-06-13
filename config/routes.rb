@@ -39,7 +39,8 @@ Rails.application.routes.draw do
     resources :rooms, only: [:create,:show]
     
     get 'tagsearches/search', to: 'tagsearches#search'
-    
+
+    resources :notifications, only: [:update]
   end
 
   namespace :admin do

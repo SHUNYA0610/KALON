@@ -2,14 +2,14 @@
   <tbody>
     <% post.post_comments.each do |post_comment| %>
     <tr>
-      <td>
+      <td class="align-middle">
         <%= link_to user_path(post_comment.user) do %>
         <%= image_tag post_comment.user.get_profile_image(50, 50), class: "rounded-circle"; %><br>
           <%= post_comment.user.name %>
         <% end %>
       </td>
-      <td><%= post_comment.comment %></td>
-      <td>
+      <td class="align-middle"><%= post_comment.comment %></td>
+      <td class="align-middle">
         <% if post_comment.user == current_user %>
           <%= link_to "Destroy", post_post_comment_path(post, post_comment), method: :delete, class: "btn btn-sm btn-danger float-end" %>
         <% end %>

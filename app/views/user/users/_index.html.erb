@@ -9,12 +9,12 @@
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td><%= image_tag user.get_profile_image(50,50) %></td>
-        <td><%= user.name %></td>
-        <td>フォロー数: <%= user.followings.count %></td>
-        <td>フォロワー数: <%= user.followers.count %></td>
-        <td><%= render "user/relationships/btn", user: user, options: { class: "follow-link" } %></td>
-        <td><%= link_to "Show", user %></td>
+        <td class="align-middle"><%= image_tag user.get_profile_image(50,50), class: "rounded-circle"; %></td>
+        <td class="align-middle"><%= user.name %></td>
+        <td class="align-middle">フォロー数: <%= user.followings.count %></td>
+        <td class="align-middle">フォロワー数: <%= user.followers.count %></td>
+        <td class="align-middle"><%= render "user/relationships/btn", user: user, options: { class: "follow-link" } %></td>
+        <td class="align-middle"><%= link_to "プロフィール画面へ", user %></td>
       </tr>
     <% end %>
   </tbody>

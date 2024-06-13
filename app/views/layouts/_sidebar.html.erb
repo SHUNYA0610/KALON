@@ -31,16 +31,13 @@
   </div>
   <div class="mt-2 mb-2 h5">
     <%= link_to edit_user_registration_path, class: 'nav-link' do %>
-      <i class="fa-solid fa-user"></i>　アカウント情報の編集
+      <i class="fa-solid fa-user"></i>　会員情報の編集
     <% end %>
   </div>
   <div>
-    <%= render 'user/tagsearches/tagsearch' %>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ポストする</button>
   </div>
-  <div>
-    <%= render "user/searches/form" %>
-  </div>
-  
 <% else %>
   <div>
     <%= link_to root_path, class: 'nav-link' do %>

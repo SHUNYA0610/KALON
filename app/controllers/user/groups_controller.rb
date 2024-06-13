@@ -52,7 +52,7 @@ class User::GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name, :introduction, :image)
+    params.require(:group).permit(:name, :introduction, :group_image)
   end
 
   def ensure_correct_user

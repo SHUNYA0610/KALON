@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-    
+
+    <%= render "user/posts/post_modal" %>    
     <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF">
       <%= render 'layouts/sidebar' %>
     </div>
@@ -11,31 +12,13 @@
       <div>
         <h2>ユーザー一覧</h2>
         <div><%=link_to "グループを作成する",new_group_path %> | <%=link_to "グループ一覧",groups_path %></div>
-        <table class='table'>
-          <thead>
-            <tr>
-              <th>image</th>
-              <th>name</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @users.each do |user| %>
-              <tr>
-                <td><%= image_tag user.get_profile_image(80,80) %></td>
-                <td><%= user.name %></td>
-                <td>
-                  <%= link_to "Show", user_path(user.id) %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <%= render 'user/users/index', users: @users %>
       </div>
     </div>
     
-    <div class="col-2">
+    <div class="col-2" style="position: sticky; top: 0; left: 0; height: 100vh;">
+      <%= render "layouts/sidebar_r" %>
     </div>
     
-  </div>  
+  </div>
 </div>

@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :view_counts, dependent: :destroy
+  has_many :notifications, as: :notifiable, dependent: :destroy
   validates :category, presence: true
 
   def favorited_by?(user)
@@ -31,5 +32,11 @@ class Post < ApplicationRecord
       Post.where('name LIKE ?', '%' + content + '%')
     end
   end
+  
+  after_create do
+    user.followers.each do |follower|
+      notifications.create(user_id: follower.id)
+    end
+  end 
 
 end
