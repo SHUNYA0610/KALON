@@ -25,7 +25,7 @@ class User::UsersController < ApplicationController
         @entry = Entry.new
       end
     end
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: :desc)
     @post = Post.new
   end
 
