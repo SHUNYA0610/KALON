@@ -7,8 +7,8 @@
     </div>
 
     <div class="col-7">
-      <h2>ブックマーク</h2>
-      <% @favorite_posts.each do |post| %>
+      <h2>フォロー中</h2>
+      <% @following_posts.each do |post| %>
         <div class="card-list-container py-5">
           <div class="card mt-4 shadow-lg">
             <% if post.image.attached? %>

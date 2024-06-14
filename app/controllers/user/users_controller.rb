@@ -51,6 +51,10 @@ class User::UsersController < ApplicationController
     @favorite_posts = Post.where(id: favorites).order(created_at: :desc)
   end
 
+  def following_post
+    @following_posts= Post.where(user_id: [*current_user.following_ids]).order(created_at: :desc)
+  end
+
   private
 
   def user_params
