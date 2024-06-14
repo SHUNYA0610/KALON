@@ -15,10 +15,12 @@ class User::RelationshipsController < ApplicationController
   def followings
     user = User.find(params[:user_id])
     @users = user.followings
+    @new_post = Post.new
   end
 
   def followers
     user = User.find(params[:user_id])
     @users = user.followers
+    @new_post = Post.new
   end
 end

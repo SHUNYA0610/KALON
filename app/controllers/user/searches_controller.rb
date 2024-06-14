@@ -12,5 +12,7 @@ class User::SearchesController < ApplicationController
     else
       @records = Post.search_for(@content, @method)
     end
+    @new_post = Post.new
   end
+  
 end

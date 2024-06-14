@@ -19,6 +19,7 @@ class User::RoomsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
+    @new_post = Post.new
   end
   
 end

@@ -2,6 +2,7 @@ class User::PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
+    @following_posts= Post.where(user_id: [*current_user.following_ids]).order(created_at: :desc)
   end
 
   def create
@@ -30,6 +31,7 @@ class User::PostsController < ApplicationController
   
   def edit
     @post = Post.find(params[:id])
+
   end
 
   def update

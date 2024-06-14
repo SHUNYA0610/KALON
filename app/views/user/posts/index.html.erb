@@ -1,13 +1,31 @@
 <div class='container'>
   <div class='row'>
 
-    <%= render "user/posts/post_modal" %>
+    <%= render "user/posts/post_modal", post: @post %>
     <div class='col-2' style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
       <%= render 'layouts/sidebar' %>
     </div>
     
     <div class='col-7'>
-      <%= render 'user/posts/index', posts: @posts %>
+      <div class="tabs">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#section1">投稿一覧</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#section2">フォロー中</a>
+          </li>
+        </ul>
+        
+        <div class="tab-content">
+          <div id="section1" class="tab-pane fade show active">
+            <%= render 'user/posts/index', posts: @posts %>
+          </div>
+          <div id="section2" class="tab-pane fade">
+            <%= render 'user/posts/following_post', following_posts: @following_posts %>
+          </div>
+        </div>
+      </div>
     </div>
     
     <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">

@@ -14,6 +14,7 @@ class User::GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @post = Post.new
   end
 
   def create
@@ -27,6 +28,7 @@ class User::GroupsController < ApplicationController
   end
 
   def edit
+    @post = Post.new
   end
 
   def update
@@ -39,6 +41,7 @@ class User::GroupsController < ApplicationController
   
   def new_mail
     @group = Group.find(params[:group_id])
+    @post = Post.new
   end
 
   def send_mail
@@ -47,6 +50,7 @@ class User::GroupsController < ApplicationController
     @mail_title = params[:mail_title]
     @mail_content = params[:mail_content]
     ContactMailer.send_mail(@mail_title, @mail_content,group_users).deliver
+    @post = Post.new
   end
   
   private
