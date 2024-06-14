@@ -1,7 +1,19 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+    <%= render "user/posts/post_modal" %>
+    <div class='col-2' style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
+      <%= render 'layouts/sidebar' %>
+    </div>
+    
+    <div class='col-7'>
       <h3>Editing Group</h3>
-        <%= render 'user/groups/form', group: @group %>
-  </div>
+      <%= render 'user/groups/form', group: @group %>
+    </div>
+    
+    <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
+      <%= render "layouts/sidebar_r" %>
+    </div>
+    
+  </div>  
 </div>

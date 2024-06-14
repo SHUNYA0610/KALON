@@ -1,12 +1,28 @@
-<div class="container d-flex flex-column align-items-center text-left">
-  <div>
-    <h3 class="mb-3">送信が完了しました。</h3>
-    <p class="mb-1">内容は以下の通りです。</p>
-    <div>
-      [タイトル]<p class="font-weight-bold"><%= @mail_title %></p>
+<div class='container'>
+  <div class='row'>
+
+    <%= render "user/posts/post_modal" %>
+    <div class='col-2' style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
+      <%= render 'layouts/sidebar' %>
     </div>
-    <div>
-      [本文]<p class="font-weight-bold"><%= safe_join(@mail_content.split("\n"),tag(:br)) %></p>
+    
+    <div class='col-7'>
+      <div>
+        <h3 class="mb-3">送信が完了しました。</h3>
+        <p class="mb-1">内容は以下の通りです。</p>
+        <div>
+          [タイトル]<p class="font-weight-bold"><%= @mail_title %></p>
+        </div>
+        <div>
+          [本文]<p class="font-weight-bold"><%= safe_join(@mail_content.split("\n"),tag(:br)) %></p>
+        </div>
+      </div>
     </div>
+
+    <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
+      <%= render "layouts/sidebar_r" %>
+    </div>
+    
   </div>
 </div>
+
