@@ -1,43 +1,41 @@
-<div class="container">
-  <div class="row">
+<div class="row">
 
-    <%= render "user/posts/post_modal", post: @new_post  %>
-    <div class="col-2" style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
-      <%= render 'layouts/sidebar' %>
-    </div>
-    
-    <div class="col-7">
-      <h1>ポストの編集</h1>
-      <%= form_with model: @post, mothod: :patch do |f| %>
-        <div>
-          <%= f.label :イメージ %>
-          <%= f.file_field :image, accept: "image/*" %>
-        </div>
-        <div>
-          <%= f.label :shop %>
-          <%= f.text_field :shop %>
-        </div>
-        <div>
-          <%= f.label :opinion %>
-          <%= f.text_area :caption %>
-        </div>
-        <div>
-          <%= f.label :カテゴリータグ %>
-          <%= f.text_field :category %>
-        </div>
-        <div>
-          <%= f.submit "ポスト更新" %>
-        </div>
-      <% end %>
-    
-      <%= link_to "詳細", post_path(@post) %>
-      |
-      <%= link_to "戻る", posts_path %>
-    </div>
-    
-    <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
-      <%= render "layouts/sidebar_r" %>
-    </div>
-
+  <%= render "user/posts/post_modal", post: @new_post  %>
+  <div class="col-2" style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
+    <%= render 'layouts/sidebar' %>
   </div>
+  
+  <div class="col-7">
+    <h1>ポストの編集</h1>
+    <%= form_with model: @post, mothod: :patch do |f| %>
+      <div>
+        <%= f.label :イメージ %>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div>
+        <%= f.label :shop %>
+        <%= f.text_field :shop %>
+      </div>
+      <div>
+        <%= f.label :opinion %>
+        <%= f.text_area :caption %>
+      </div>
+      <div>
+        <%= f.label :カテゴリータグ %>
+        <%= f.text_field :category %>
+      </div>
+      <div>
+        <%= f.submit "ポスト更新" %>
+      </div>
+    <% end %>
+  
+    <%= link_to "詳細", post_path(@post) %>
+    |
+    <%= link_to "戻る", posts_path %>
+  </div>
+  
+  <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
+    <%= render "layouts/sidebar_r" %>
+  </div>
+
 </div>

@@ -1,7 +1,19 @@
-<div>
-  <h1>KaLon</h1>
-  <div>
-    <div><%= link_to "Log in", new_user_session_path %></div>
-    <div><%= link_to "Sign up", new_user_registration_path %></div>
+<div class="row">
+
+  <div class="col-6">
+    <%= image_tag "logo.png", size: "500x500" %>
   </div>
+  
+  <div class="col-6">
+    <h2>美の最先端が、ここに。</h2>
+    <div>
+      <h3>今すぐ参加しよう。<h3>
+    　<div><%= link_to "アカウントの作成", new_user_registration_path, class: "btn btn-info btn-block" %></div>
+    </div>
+    <div>
+      <h4>アカウントをお持ちの場合<h4>
+      <div><%= link_to "ログイン", new_user_session_path, class: "btn btn-info btn-block" %></div>
+    </div>
+  </div>
+  
 </div>

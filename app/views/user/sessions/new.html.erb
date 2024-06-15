@@ -1,26 +1,39 @@
-<h2>Log in</h2>
+<div class="row">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="col-6">
+    <%= image_tag "logo.png", size: "500x500" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  
+  <div class="col-6">
+    <h2>ログイン</h2>
+    
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :アカウント名 %><br />
+        <%= f.text_field :name %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :パスワード %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+      <%= link_to "パスワードの変更", edit_user_registration_path %>
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :私はロボットではありません。 %>
+        </div>
+      <% end %>
+    
+      <div class="actions">
+        <%= f.submit "ログイン" %>
+      </div>
+    <% end %>
+    
+    <%= render "user/shared/links" %>
+    
+    <%= link_to "管理者", new_admin_session_path %>
+    
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "user/shared/links" %>
+  
+</div>

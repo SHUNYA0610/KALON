@@ -1,48 +1,46 @@
-<div class="container">
-  <div class="row">
+<div class="row">
 
-    <%= render "user/posts/post_modal", post: @post %>
-    <div class="col-2" style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
-      <%= render 'layouts/sidebar' %>
-    </div>
-    
-    <div class="col-7">
-      <div>
-        <h2>グループ一覧</h2>
-        <table class="table table-hover table-inverse">
-          <thead>
+  <%= render "user/posts/post_modal", post: @post %>
+  <div class="col-2" style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
+    <%= render 'layouts/sidebar' %>
+  </div>
+  
+  <div class="col-7">
+    <div>
+      <h2>グループ一覧</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th></th>
+            <th>グループ名</th>
+            <th>紹介文</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @groups.each do |group| %>
             <tr>
-              <th></th>
-              <th>グループ名</th>
-              <th>紹介文</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @groups.each do |group| %>
-              <tr>
-                <% if group.group_image.attached? %>
-                <td class="align-middle"><%= image_tag group.group_image.variant(resize_to_fill: [50, 50]).processed,class: "rounded-circle" %></td>
-                <% else %>
-                <td class="align-middle"><%= image_tag "no-image.jpg", size: "50x50",class: "rounded-circle" %></td>
+              <% if group.group_image.attached? %>
+              <td class="align-middle"><%= image_tag group.group_image.variant(resize_to_fill: [50, 50]).processed,class: "rounded-circle" %></td>
+              <% else %>
+              <td class="align-middle"><%= image_tag "no-image.jpg", size: "50x50",class: "rounded-circle" %></td>
+              <% end %>
+              <td class="align-middle"><%= link_to group.name, group_path(group) %></td>
+              <td class="align-middle"><%= group.introduction %></td>
+              <td>
+                <% if group.owner_id == current_user.id %>
+                  <%= link_to 'Edit', edit_group_path(group), class: "btn btn-sm btn-success" %>
                 <% end %>
-                <td class="align-middle"><%= link_to group.name, group_path(group) %></td>
-                <td class="align-middle"><%= group.introduction %></td>
-                <td>
-                  <% if group.owner_id == current_user.id %>
-                    <%= link_to 'Edit', edit_group_path(group), class: "btn btn-sm btn-success" %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
-    
-    <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
-      <%= render "layouts/sidebar_r" %>
-    </div>
-    
-  </div>  
+  </div>
+  
+  <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
+    <%= render "layouts/sidebar_r" %>
+  </div>
+  
 </div>

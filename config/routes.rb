@@ -48,6 +48,16 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
+
+    resources :posts, only: [:index, :show, :destroy] do
+      resources :post_comments, only: [:destroy]
+    end
+
+    resources :users, only: [:index, :show, :destroy]
+
+    resources :groups, only:  [:index, :show]
+
+    get 'tagsearches/search', to: 'tagsearches#search'
   end
 
 end

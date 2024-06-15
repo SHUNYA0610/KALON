@@ -1,42 +1,40 @@
-<div class="container">
-  <div class="row">
+<div class="row">
 
-    <%= render "user/posts/post_modal", post: @new_post %>
-    <div class="col-2" style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
-      <%= render "layouts/sidebar" %>
-    </div>
-    
-    <div class="col-7">
+  <%= render "user/posts/post_modal", post: @new_post %>
+  <div class="col-2" style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
+    <%= render "layouts/sidebar" %>
+  </div>
+  
+  <div class="col-7">
+    <div>
       <div>
         <div>
-          <div>
-            <h2>プロフィール編集</h2>
-            <%= form_with model: @user do |f| %>
-              <div>
-                <%= f.label :ニックネーム %>
-                <%= f.text_field :name, autofocus: true, id:"inputName" %>
-              </div>
-              <div>
-                <%= f.label :プロフィール画像 %>
-                <%= f.file_field :profile_image, accept: "image/*" %>
-              </div>
-              <div>
-                <%= f.label :自己紹介 %>
-                <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction" %>
-              </div>
-              <div>
-                <%= f.submit "プロフィール更新" %>
-              </div>
-            <% end %>
-            <div><%= button_to "アカウント削除", user_path(current_user.id), data: { confirm: "本当に削除して宜しいですか?削除するとアカウントの復旧はできません。", turbo_confirm: "本当に削除して宜しいですか？削除するとアカウントの復旧はできません。" }, method: :delete %></div>
-          </div>
+          <h2>プロフィール編集</h2>
+          <%= form_with model: @user do |f| %>
+            <div>
+              <%= f.label :ニックネーム %>
+              <%= f.text_field :name, autofocus: true, id:"inputName" %>
+            </div>
+            <div>
+              <%= f.label :プロフィール画像 %>
+              <%= f.file_field :profile_image, accept: "image/*" %>
+            </div>
+            <div>
+              <%= f.label :自己紹介 %>
+              <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction" %>
+            </div>
+            <div>
+              <%= f.submit "プロフィール更新" %>
+            </div>
+          <% end %>
+          <div><%= button_to "アカウント削除", user_path(current_user.id), data: { confirm: "本当に削除して宜しいですか?削除するとアカウントの復旧はできません。", turbo_confirm: "本当に削除して宜しいですか？削除するとアカウントの復旧はできません。" }, method: :delete %></div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
-      <%= render "layouts/sidebar_r" %>
-    </div>
-    
-  </div>  
+  <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
+    <%= render "layouts/sidebar_r" %>
+  </div>
+  
 </div>

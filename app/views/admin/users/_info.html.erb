@@ -1,0 +1,20 @@
+<div>
+  <div class="d-flex justify-content-between">
+    <%= image_tag user.get_profile_image(100,100), class: "rounded-circle"%>
+  </div>
+  <div class="flex-column">
+    <div>
+      <div>
+        <%= @user.name %>
+      </div>
+      <div>
+        <%= @user.introduction %>
+      </div>
+    </div>
+    <div>
+      <span><%= @user.followings.count %>フォロー中</span>
+      <span><%= @user.followers.count %>フォロワー</span>
+    </div>
+    <div><%= button_to "アカウント削除", admin_user_path(user.id), data: { confirm: "本当に削除して宜しいですか?削除するとアカウントの復旧はできません。", turbo_confirm: "本当に削除して宜しいですか？削除するとアカウントの復旧はできません。" }, method: :delete %></div>
+  </div>
+</div>

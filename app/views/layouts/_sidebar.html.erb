@@ -1,6 +1,6 @@
 <div>
 <a href="/">
-  <span>KaLoN</span>
+  <%= image_tag "logo2.png", class: 'logo2' %>
 </a>
 </div>
 <% if user_signed_in? %>
@@ -26,7 +26,7 @@
   </div>
   <div class="mt-2 mb-2 h5">
     <%= link_to groups_path, class: 'nav-link' do %>
-      <i class="fa-solid fa-users-rectangle"></i>　グループ一覧
+      <i class="fa-solid fa-people-roof"></i>　グループ一覧
     <% end %>
   </div>
   <div class="mt-2 mb-2 h5">
@@ -34,34 +34,33 @@
       <i class="fas fa-sign-out-alt"></i>　ログアウト
     <% end %>
   </div>
-  <div class="mt-2 mb-2 h5">
-    <%= link_to edit_user_registration_path, class: 'nav-link' do %>
-      <i class="fa-solid fa-user"></i>　会員情報の編集
-    <% end %>
-  </div>
-  <div>
-    <!-- Button trigger modal -->
+  <div><!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ポストする</button>
   </div>
-<% else %>
-  <div>
-    <%= link_to root_path, class: 'nav-link' do %>
-      <i class="fas fa-home"></i> ホーム
+<% elsif admin_signed_in? %>
+  <div class="mt-2 mb-2 h5">
+    <%= link_to admin_root_path, class: 'nav-link' do %>
+      <i class="fas fa-home"></i>　ホーム
     <% end %>
   </div>
-  <div>
-    <%= link_to about_path, class: 'nav-link' do %>
-      <i class="fas fa-link"> アバウト</i> 
+  <div class="mt-2 mb-2 h5">
+    <%= link_to admin_users_path, class: 'nav-link' do %>
+      <i class="fas fa-users"></i>　ユーザー一覧
     <% end %>
   </div>
-  <div>
-    <%= link_to new_user_registration_path, class: 'nav-link' do %>
-      <i class="fas fa-user-plus"></i> Sign up
+  <div class="mt-2 mb-2 h5">
+    <%= link_to admin_posts_path, class: 'nav-link' do %>
+      <i class="fa-solid fa-pen-fancy"></i>　投稿一覧
     <% end %>
   </div>
-  <div>
-    <%= link_to new_user_session_path, class: 'nav-link' do %>
-      <i class="fas fa-sign-in-alt"></i> Log in
+  <div class="mt-2 mb-2 h5">
+    <%= link_to admin_groups_path, class: 'nav-link' do %>
+      <i class="fa-solid fa-people-roof"></i>　グループ一覧
+    <% end %>
+  </div>
+  <div class="mt-2 mb-2 h5">
+    <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
+      <i class="fas fa-sign-out-alt"></i>　ログアウト
     <% end %>
   </div>
 <% end %>

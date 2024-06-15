@@ -1,0 +1,43 @@
+<div class='row'>
+
+  <%= render "user/posts/post_modal", post: @post %>
+  <div class='col-2' style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
+    <%= render 'layouts/sidebar' %>
+  </div>
+  
+  <div class='col-7'>
+    <div>
+      <h2>グループ詳細</h2>
+      <table class='table table-hover table-inverse'>
+      <thead>
+        <tr>
+          <th></th>
+          <th>グループ名</th>
+          <th>紹介文</th>
+          <th>メンバー</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% if @group.group_image.attached? %>
+          <td class="align-middle"><%= image_tag @group.group_image.variant(resize_to_fill: [50, 50]).processed,class: "rounded-circle" %></td>
+          <% else %>
+          <td class="align-middle"><%= image_tag "no-image.jpg", size: "50x50",class: "rounded-circle" %></td>
+          <% end %>
+          <td><%= @group.name %></td>
+          <td><%= @group.introduction %></td>
+          <% @group.users.each do |user| %>
+　　        <td style="list-style: none;"><%= user.name %></td>
+          <% end %>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
+    <%= render "layouts/sidebar_r" %>
+  </div>
+  
+</div>
