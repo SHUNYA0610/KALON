@@ -1,24 +1,35 @@
+
+<div class="" style="flex: 2.2;position: sticky;top: 0;left: 0;height: 100vh;margin: 5px 0px 0px 20px;padding-top: 20px; padding: 8px;">
+
+<%= form_with do |f| %>
+  <%= f.text_field :test, placeholder: "search ...", style: "border: 3px #D43EFF solid;padding: 8px;border-radius: 25px; margin-bottom: 10px; width: 100%;" %>
+<% end %>
 <% if user_signed_in? %>
-  <div>
-    <%= render 'user/tagsearches/tagsearch' %>
-  </div>
-  <div>
-    <%= render "user/searches/form" %>
-  </div>
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      通知
-      <span class="badge badge-danger"><%= current_user.notifications.where(read: false).count %></span>
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 270px;">
-      <% if current_user.notifications.where(read: false).any? %>
-        <small class="disabled" style="display: block;">直近5件の未読の通知を表示しています</small>
-        <% current_user.notifications.where(read: false).limit(5).order(created_at: :desc).each do |notification| %>
-          <%= link_to notification_message(notification), notification_path(notification), method: :patch, style: "display: block;" %>
+  <div style="border: 3px lightgray solid;padding: 15px; border-radius: 15px; ">
+    <div>
+      <%= render 'user/tagsearches/tagsearch' %>
+    </div>
+    <div>
+      <%= render "user/searches/form" %>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        通知
+        <span class="badge badge-danger"><%= current_user.notifications.where(read: false).count %></span>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 270px;">
+        <% if current_user.notifications.where(read: false).any? %>
+          <small class="disabled" style="display: block;">直近5件の未読の通知を表示しています</small>
+          <% current_user.notifications.where(read: false).limit(5).order(created_at: :desc).each do |notification| %>
+            <%= link_to notification_message(notification), notification_path(notification), method: :patch, style: "display: block;" %>
+          <% end %>
+        <% else %>
+          <span class="dropdown-item disabled">未読の通知はありません</span>
         <% end %>
-      <% else %>
-        <span class="dropdown-item disabled">未読の通知はありません</span>
-      <% end %>
+      </div>
     </div>
   </div>
 <% end %>
+
+
+</div>

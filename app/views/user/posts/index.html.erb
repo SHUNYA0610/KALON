@@ -1,11 +1,9 @@
 <div class='row'>
 
   <%= render "user/posts/post_modal", post: @post %>
-  <div class='col-2' style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
     <%= render 'layouts/sidebar' %>
-  </div>
-  
-  <div class='col-7'>
+
+  <div style="flex:4;">
     <div class="tabs">
       <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -27,8 +25,6 @@
     </div>
   </div>
   
-  <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
     <%= render "layouts/sidebar_r" %>
-  </div>
-  
+
 </div>  
