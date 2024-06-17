@@ -3,11 +3,10 @@
   <%= render "user/posts/post_modal", post: @post %>    
     <%= render 'layouts/sidebar' %>
 
-  <div class="col-7">
+  <div style="flex:4;">
         <!--ユーザー一覧表示-->
     <div>
       <h2>ユーザー一覧</h2>
-      <div><%=link_to "グループを作成する",new_group_path %> | <%=link_to "グループ一覧",groups_path %></div>
       <%= render 'user/users/index', users: @users %>
     </div>
   </div>

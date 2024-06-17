@@ -3,7 +3,7 @@
   <%= render "user/posts/post_modal", post: @post %>
     <%= render 'layouts/sidebar' %>
 
-  <div class="col-7">
+  <div style="flex:4;">
     <%= render 'user/users/info', user: @user, isRoom: @isRoom, roomId: @roomId, room: @room, entry: @entry %>
     <%= render 'user/posts/index', posts: @posts %>
   </div>

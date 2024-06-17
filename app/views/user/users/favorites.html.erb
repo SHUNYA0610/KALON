@@ -6,7 +6,7 @@
   <div class="col-7">
     <h2>ブックマーク</h2>
     <% @favorite_posts.each do |post| %>
-      <div class="card-list-container py-5">
+      <div class="card-list-container py-2">
         <div class="card mt-4 shadow-lg">
           <% if post.image.attached? %>
             <%= image_tag post.get_image, class: 'card-img-top';%>

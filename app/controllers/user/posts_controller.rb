@@ -9,7 +9,13 @@ class User::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.save!
-    redirect_to post_path(@post)
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      @user = current_user
+      @posts = Post.all
+      render :index
+    end
   end
   
   def show
@@ -45,4 +51,5 @@ class User::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:image, :shop, :caption, :category)
   end
+  
 end

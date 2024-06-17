@@ -27,6 +27,9 @@
     <div>
       <div>
         <%= @user.name %>
+        <% if @user.is_group_creator %>
+          <i class="fa-solid fa-crown" style="color: #D43EFF;"></i>
+        <% end %>
       </div>
       <div>
         <%= @user.introduction %>

@@ -1,4 +1,4 @@
-class A::PostCommentsController < ApplicationController
+class Ad::PostCommentsController < ApplicationController
 
   def destroy
     comment = PostComment.find(params[:id])

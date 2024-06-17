@@ -1,10 +1,8 @@
 <div class='row'>
   
-  <div class='col-2' style="position: sticky; top: 0; left: 0; hheight: 100vh; background-color: #D43EFF;">
     <%= render 'layouts/sidebar' %>
-  </div>
 
-  <div class='col-7'>
+  <div style="flex:4;">
     <div class='card-list-container py-5'>
       <div class='card mt-4 shadow-lg'>
       <% if @post.image.attached? %>
@@ -14,16 +12,16 @@
         <div class='card-body'>
           <div class='row'>
             <div class='col-2'>
-              <%= link_to user_path(@post.user_id) do %><%= image_tag @post.user.get_profile_image(50,50), class: "rounded-circle"; %><% end %>
+              <%= link_to admin_user_path(@post.user_id) do %><%= image_tag @post.user.get_profile_image(50,50), class: "rounded-circle"; %><% end %>
             </div>
             <div class='col-10'>
               <p class='card-title'>
               <%= @post.user.name %>
               </p>
-              <strong><i class="fa-solid fa-shop"></i>　<span><%= link_to post_path(@post.id) do %><%= @post.shop %></span></strong><% end %>
+              <strong><i class="fa-solid fa-shop"></i>　<span><%= link_to admin_post_path(@post.id) do %><%= @post.shop %></span></strong><% end %>
               <span><p class='card-text'></p><%= @post.caption %></p></span>
               <% if @post.category.present? %>
-                <span><%=link_to@post.category,tagsearches_search_path(content:@post.category)%>
+                <span><%=link_to @post.category,admin_tagsearches_search_path(content:@post.category)%>
               <% end %>
               <span id="favorite_btn_<%= @post.id %>"><%= render 'admin/favorites/btn', post: @post %></span>
               <span><%= render 'admin/post_comments/counter', post: @post %></span>
@@ -39,8 +37,6 @@
     </div>
   </div>
 
-  <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
     <%= render "layouts/sidebar_r" %>
-  </div>
 
 </div>

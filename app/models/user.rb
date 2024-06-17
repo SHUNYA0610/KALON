@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :view_counts, dependent: :destroy
   has_many :group_users
-  has_many :groups, through: :group_users
+  has_many :groups, through: :group_users,dependent: :destroy
   has_many :notifications, dependent: :destroy
   
   has_one_attached :profile_image
@@ -54,6 +54,15 @@ class User < ApplicationRecord
     followings.include?(user)
   end
   
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.name = "ゲスト"
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+    end
+  end
+  
   def self.search_for(content, method)
     if method == 'perfect'
       User.where(name: content)
@@ -65,5 +74,8 @@ class User < ApplicationRecord
       User.where('name LIKE ?', '%' + content + '%')
     end
   end
+  
+  validates :name, uniqueness: true, length: { in: 2..20 }
+  validates :introduction, length: { maximum: 50 }
   
 end

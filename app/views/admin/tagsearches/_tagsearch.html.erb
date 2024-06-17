@@ -2,7 +2,7 @@
   <table align="">
     <tr>
       <div class="serch_form">
-      <%= form_with url: tagsearches_search_path,method: :get, local: true do |f| %>
+      <%= form_with url: admin_tagsearches_search_path,method: :get, local: true do |f| %>
       <td><%= f.text_field :content %></td>
       <td><%= f.submit'タグ検索' %></td>
       <% end %>

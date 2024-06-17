@@ -1,5 +1,5 @@
-<div class="" style="flex: 1.5;position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF; margin-right: 40px;">
-  
+<div style="flex: 1.5;position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF; margin-right: 40px;">
+
 <div>
 <a href="/">
   <%= image_tag "logo2.png", class: 'logo2' %>
@@ -26,6 +26,13 @@
      <i class="fa-regular fa-bookmark"></i>　ブックマーク
     <% end %>
   </div>
+  <% if current_user.is_group_creator %>
+  <div class="mt-2 mb-2 h5">
+    <%= link_to new_group_path, class: 'nav-link' do %>
+      <i class="fa-solid fa-crown"></i>　グループ作成
+    <% end %>
+  </div>
+  <% end %>
   <div class="mt-2 mb-2 h5">
     <%= link_to groups_path, class: 'nav-link' do %>
       <i class="fa-solid fa-people-roof"></i>　グループ一覧
@@ -39,12 +46,13 @@
   <div style="margin:20px 0 0 10px;"><!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ポストする</button>
   </div>
+
 <% elsif admin_signed_in? %>
   <div class="mt-2 mb-2 h5">
     <%= link_to admin_root_path, class: 'nav-link' do %>
       <i class="fas fa-home"></i>　ホーム
     <% end %>
-  
+
   </div>
   <div class="mt-2 mb-2 h5">
     <%= link_to admin_users_path, class: 'nav-link' do %>

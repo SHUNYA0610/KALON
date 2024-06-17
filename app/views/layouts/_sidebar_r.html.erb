@@ -1,12 +1,19 @@
+<div style="flex: 2.2;position: sticky;top: 0;left: 0;height: 100vh;margin: 5px 0px 0px 20px;padding-top: 20px; padding: 8px;">
 
-<div class="" style="flex: 2.2;position: sticky;top: 0;left: 0;height: 100vh;margin: 5px 0px 0px 20px;padding-top: 20px; padding: 8px;">
-
-<%= form_with do |f| %>
-  <%= f.text_field :test, placeholder: "search ...", style: "border: 3px #D43EFF solid;padding: 8px;border-radius: 25px; margin-bottom: 10px; width: 100%;" %>
-<% end %>
-<% if user_signed_in? %>
+  <%= form_with do |f| %>
+    <%= f.text_field :test, placeholder: "search ...", style: "border: 3px #D43EFF solid;padding: 8px;border-radius: 25px; margin-bottom: 10px; width: 100%;" %>
+  <% end %>
   <div style="border: 3px lightgray solid;padding: 15px; border-radius: 15px; ">
+    <% if admin_signed_in? %>
     <div>
+      <%= render 'admin/tagsearches/tagsearch' %>
+    </div>
+    <div>
+      <%= render "admin/searches/form" %>
+    </div>
+    <% end %>
+  　<% if user_signed_in? %>
+  　<div>
       <%= render 'user/tagsearches/tagsearch' %>
     </div>
     <div>
@@ -27,9 +34,8 @@
           <span class="dropdown-item disabled">未読の通知はありません</span>
         <% end %>
       </div>
+    <% end %>
     </div>
   </div>
-<% end %>
-
 
 </div>

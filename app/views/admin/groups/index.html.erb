@@ -1,10 +1,8 @@
 <div class="row">
 
-  <div class="col-2" style="position: sticky; top: 0; left: 0; height: 100vh; background-color: #D43EFF;">
     <%= render 'layouts/sidebar' %>
-  </div>
-  
-  <div class="col-7">
+
+  <div style="flex:4;">
     <div>
       <h2>グループ一覧</h2>
       <table class="table table-hover table-inverse">
@@ -26,6 +24,7 @@
               <% end %>
               <td class="align-middle"><%= link_to group.name, admin_group_path(group) %></td>
               <td class="align-middle"><%= group.introduction %></td>
+              <td class="align-middle"><%= link_to '削除', admin_group_path(group), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-outline-danger" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -33,8 +32,6 @@
     </div>
   </div>
   
-  <div class="col-3" style="position: sticky; top: 0; left: 0; height: 100vh;">
     <%= render "layouts/sidebar_r" %>
-  </div>
-  
+
 </div>

@@ -9,7 +9,6 @@ class Admin::PostsController < ApplicationController
     @post_detail = Post.find(params[:id])
     @post = Post.find(params[:id])
     @user = @post.user
-    @new_post = Post.new
     @post_comment = PostComment.new
   end
   

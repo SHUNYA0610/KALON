@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # URL /customers/sign_in ...
   devise_for :user,skip: [:passwords], controllers: {
     registrations: "user/registrations",
-    sessions: 'user/sessions'
+    sessions: 'user/sessions',
+    passwords: 'users/passwords'
   }
   
   # 管理者用
@@ -11,7 +12,11 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-  
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
+  end
+
   root to: 'user/homes#top'
   get 'home/about' => 'user/homes#about', as: 'about'
   get "/search", to: "user/searches#search"
@@ -32,7 +37,7 @@ Rails.application.routes.draw do
       end
     end
   
-    resources :groups, only:  [:new, :index, :show, :create, :edit, :update] do
+    resources :groups, only:  [:new, :index, :show, :create, :edit, :update, :destroy] do
       resource :group_users, only: [:create, :destroy]
       get "join" =>"groups#join"
       get "new/mail" => "groups#new_mail"
@@ -48,14 +53,17 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
+    get "/search", to: "searches#search"
 
     resources :posts, only: [:index, :show, :destroy] do
       resources :post_comments, only: [:destroy]
     end
 
-    resources :users, only: [:index, :show, :destroy]
+    resources :users, only: [:index, :show, :destroy] do
+      get "/change_is_group_creator", to: "users#change_is_group_creator"
+    end
 
-    resources :groups, only:  [:index, :show]
+    resources :groups, only:  [:index, :show, :destroy]
 
     get 'tagsearches/search', to: 'tagsearches#search'
   end

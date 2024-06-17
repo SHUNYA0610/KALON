@@ -3,7 +3,7 @@
   <%= render "user/posts/post_modal", post: @post %>
     <%= render 'layouts/sidebar' %>
 
-  <div class='col-7'>
+  <div style="flex:4;">
     <h2>イベントメール</h2>
     <%= form_with url:group_send_mail_path(@group), method: :get, local: true do |f| %>
 

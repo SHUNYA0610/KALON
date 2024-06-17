@@ -6,6 +6,9 @@
     <div>
       <div>
         <%= @user.name %>
+        <% if @user.is_group_creator %>
+          <i class="fa-solid fa-crown" style="color: #D43EFF;"></i>
+        <% end %>
       </div>
       <div>
         <%= @user.introduction %>
@@ -16,5 +19,18 @@
       <span><%= @user.followers.count %>フォロワー</span>
     </div>
     <div><%= button_to "アカウント削除", admin_user_path(user.id), data: { confirm: "本当に削除して宜しいですか?削除するとアカウントの復旧はできません。", turbo_confirm: "本当に削除して宜しいですか？削除するとアカウントの復旧はできません。" }, method: :delete %></div>
+    <div>
+      
+      <%
+        if @user.is_group_creator
+          now_text = "権限アリ"
+          next_text = "権限ナシ"
+        else
+          now_text = "権限ナシ"
+          next_text = "権限アリ"
+        end
+      %>
+      <%= button_to "グループ作成権限を切り替え", admin_user_change_is_group_creator_path(user.id), data: { confirm: "現在 : #{now_text} です。", turbo_confirm: "#{next_text} に変更してよいですか？" }, method: :get %>
+    </div>
   </div>
 </div>

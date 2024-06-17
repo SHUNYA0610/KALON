@@ -3,7 +3,6 @@ class Admin::TagsearchesController < ApplicationController
     @model = Post
     @word = params[:content]
     @posts = Post.where("category LIKE ?", "%#{@word}%")
-    render "user/tagsearches/tagsearch"
-    @new_post = Post.new
+    render "admin/tagsearches/tagsearch"
   end
 end
