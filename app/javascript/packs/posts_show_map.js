@@ -31,7 +31,7 @@ async function initMap() {
   })
   const infoWindow = new google.maps.InfoWindow({
     content: `
-      <p>name: ${mapData.shop}</p>
+      <p>ショップネーム: ${mapData.shop}</p>
     `
   })
   marker.addListener('click', () => {
