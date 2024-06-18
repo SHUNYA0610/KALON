@@ -5,9 +5,11 @@
 
   <div style="flex:4;">
     <% if @post.latitude > 0 %>
+      <h2>店舗マップ</h2>
   　　<div id="map" data-json='<%= @post_json %>'></div>
 　　<% end %>
-    <div class='card-list-container py-5'>
+　　  <h2>ポスト</h2>
+    <div class='card-list-container py-2'>
       <div class='card mt-4 shadow-lg'>
       <% if @post.image.attached? %>
         <%= image_tag @post.get_image, class: 'card-img-top';%>

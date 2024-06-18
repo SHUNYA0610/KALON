@@ -9,13 +9,11 @@
     
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <%= f.label :Eメール %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Eメール", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
       </div>
     
       <div class="field">
-        <%= f.label :パスワード %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
+        <%= f.password_field :password, autocomplete: "current-password" , placeholder: "パスワード", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
       </div>
     
       <% if devise_mapping.rememberable? %>
@@ -25,7 +23,7 @@
         </div>
       <% end %>
       <div class="actions">
-        <%= f.submit "ログイン" %>
+        <%= f.submit "ログイン" , style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 50%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
       </div>
     <% end %>
       <%= link_to "トップ画面", root_path %>

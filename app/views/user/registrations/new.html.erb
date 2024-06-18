@@ -11,30 +11,28 @@
       <%= render "user/shared/error_messages", resource: resource %>
     
       <div class="field">
-        <%= f.label :アカウント名 %><br />
-        <%= f.text_field :name %>
+        <%= f.text_field :name, placeholder: "アカウント名", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
       </div>
       
       <div class="field">
-        <%= f.label :Eメール %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Eメール", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
       </div>
     
       <div class="field">
         <%= f.label :パスワード %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>（<%= @minimum_password_length %> 文字以上）</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
       </div>
     
       <div class="field">
         <%= f.label :パスワード（確認） %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード（確認）", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
       </div>
     
       <div class="actions">
-        <%= f.submit "新規登録" %>
+        <%= f.submit "新規登録", style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 50%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
       </div>
     <% end %>
     

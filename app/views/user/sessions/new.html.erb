@@ -9,13 +9,11 @@
     
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <%= f.label :アカウント名 %><br />
-        <%= f.text_field :name %>
+        <%= f.text_field :name, placeholder: "アカウント名", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
       </div>
     
       <div class="field">
-        <%= f.label :パスワード %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
+        <%= f.password_field :password, placeholder: "パスワード", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
       </div>
       <%= link_to "パスワードの変更", edit_user_registration_path %>
       <% if devise_mapping.rememberable? %>
@@ -26,7 +24,7 @@
       <% end %>
     
       <div class="actions">
-        <%= f.submit "ログイン" %>
+        <%= f.submit "ログイン" , style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 50%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
       </div>
     <% end %>
     
