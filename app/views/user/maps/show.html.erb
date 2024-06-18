@@ -1,0 +1,14 @@
+<div class="row">
+
+  <%= render "user/posts/post_modal", post: @post %>
+    <%= render 'layouts/sidebar' %>
+
+  <div style="flex:4;">
+  <div id="map"></div>
+  </div>
+  
+    <%= render "layouts/sidebar_r" %>
+
+</div>
+
+<%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>

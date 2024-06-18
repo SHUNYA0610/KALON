@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     get 'tagsearches/search', to: 'tagsearches#search'
 
     resources :notifications, only: [:update]
+    
   end
 
   namespace :admin do

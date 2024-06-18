@@ -5,7 +5,7 @@
     <%= render "layouts/sidebar" %>
   </div>
   
-  <div class="col-7">
+  <div style="flex:4;">
     <h2>フォローユーザー</h2>
     <% if @users.exists? %>
       <%= render "user/users/index", users: @users %>

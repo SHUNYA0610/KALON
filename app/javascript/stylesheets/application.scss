@@ -12,3 +12,8 @@
   height: 80%;
   aspect-ratio: 2860 / 707;
 }
+
+#map {
+  width: 100%;
+  height: calc(100vh - 88px - 179px);
+}

@@ -8,23 +8,25 @@
     <h1>ポストの編集</h1>
     <%= form_with model: @post, mothod: :patch do |f| %>
       <div>
-        <%= f.label :イメージ %>
-        <%= f.file_field :image, accept: "image/*" %>
+        <%= f.text_field :shop, placeholder: "ショップネーム", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
       </div>
       <div>
-        <%= f.label :shop %>
-        <%= f.text_field :shop %>
+        <%= text_field_tag :zipcode, nil, placeholder: "郵便番号", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
       </div>
       <div>
-        <%= f.label :opinion %>
-        <%= f.text_area :caption %>
+        <%= f.text_field :address, placeholder: "住所", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
       </div>
       <div>
-        <%= f.label :カテゴリータグ %>
-        <%= f.text_field :category %>
+        <%= f.text_area :caption, placeholder: "コメント", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%;" %>
       </div>
       <div>
-        <%= f.submit "ポスト更新" %>
+        <%= f.text_field :category, placeholder: "カテゴリー", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%;" %>
+      </div>
+      <div>
+        <%= f.file_field :image, accept: "image/*", style: "margin-top: 5px;" %>
+      </div>
+      <div>
+        <%= f.submit "ポスト更新" , style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
       </div>
     <% end %>
   
@@ -36,3 +38,5 @@
     <%= render "layouts/sidebar_r" %>
 
 </div>
+
+<%= javascript_pack_tag "jpostal",  'data-turbolinks-track': 'reload' %>

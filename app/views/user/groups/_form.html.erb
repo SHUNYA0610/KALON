@@ -1,20 +1,17 @@
 <%= form_with model: group, local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :グループ名 %>
-    <%= f.text_field :name, class: 'form-control' %>
+  <div>
+    <%= f.text_field :name, placeholder: "グループ名", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :紹介文 %>
-    <%= f.text_area :introduction, class: 'form-control' %>
+  <div>
+    <%= f.text_area :introduction, placeholder: "紹介文", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%;" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :グループ画像 %>
-    <%= f.file_field :group_image, class: "form-control-file" %>
+  <div>
+    <%= f.file_field :group_image, accept: "image/*", style: "margin-top: 5px;" %>
   </div>
 
-  <div class="form-group">
-    <%= f.submit class: 'btn btn-info' %>
+  <div>
+    <%= f.submit "グループ更新" , style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
   </div>
 <% end %>

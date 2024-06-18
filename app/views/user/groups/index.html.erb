@@ -29,7 +29,7 @@
               <td class="align-middle"><i class="fa-regular fa-user"></i>　<%= group.users.count %></td>
               <td class="align-middle">
                 <% if group.owner_id == current_user.id %>
-                  <%= link_to '編集',edit_group_path(group), class: "btn btn-sm btn-success" %>
+                  <%= link_to '編集',edit_group_path(group), class: "btn btn-sm btn btn-outline-success" %>
                 <% end %>
                 <% if group.owner_id == current_user.id %>
                   <%= link_to '削除',groups_path(group),method: :delete,data: { confirm: '本当に削除しますか？' } ,class: "btn btn-sm btn-outline-danger" %>

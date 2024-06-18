@@ -12,13 +12,19 @@
         <%= form_with model: post do |f| %>
 
           <div>
-            <%= f.text_field :shop, placeholder: "shop name", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; border: white;" %>
+            <%= f.text_field :shop, placeholder: "ショップネーム", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; border: white;" %>
           </div>
           <div>
-            <%= f.text_area :caption, placeholder: "caption", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: white;" %>
+            <%= text_field_tag :zipcode, nil, placeholder: "郵便番号", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; border: white;" %>
           </div>
           <div>
-          <%= f.text_field :category, placeholder: "category", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: white;" %>
+            <%= f.text_field :address, placeholder: "住所", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; border: white;" %>
+          </div>
+          <div>
+            <%= f.text_area :caption, placeholder: "コメント", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: white;" %>
+          </div>
+          <div>
+          <%= f.text_field :category, placeholder: "カテゴリー", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: white;" %>
           </div>
           <div>
             <%= f.file_field :image, accept: "image/*", style: "margin-top: 5px;" %>
@@ -31,3 +37,5 @@
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag "jpostal",  'data-turbolinks-track': 'reload' %>

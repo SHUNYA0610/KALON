@@ -59,3 +59,5 @@ gem 'devise'
 
 gem 'dotenv-rails'
 gem 'net-smtp'
+
+gem 'geocoder'

@@ -27,6 +27,7 @@ class User::PostsController < ApplicationController
     @user = @post.user
     @new_post = Post.new
     @post_comment = PostComment.new
+    @post_json = @post.attributes.symbolize_keys.select { |k, v| k.match(/id|shop|latitude|longitude/) }.to_json
   end
   
   def destroy
@@ -49,7 +50,7 @@ class User::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :shop, :caption, :category)
+    params.require(:post).permit(:image, :shop, :caption, :category, :address)
   end
   
 end

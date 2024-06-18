@@ -30,12 +30,12 @@
           <% end %>
           <td>
             <% if @group.owner_id == current_user.id %>
-            　　<%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>
+            　　<%= link_to '編集', edit_group_path(@group), class: "btn btn-sm btn-success" %>
             　　<%= link_to 'Mail',group_new_mail_path(@group), class: "fas fa-paper-plane" %>
             <% elsif @group.includesUser?(current_user)%>
-            　　<%= link_to 'Leave this group', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
+            　　<%= link_to 'グループ退会', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
             <% else %>
-            　　<%= link_to 'Join this group', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %>
+            　　<%= link_to 'グループ参加', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %>
             <% end %>
           </td>
         </tr>

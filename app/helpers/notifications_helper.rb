@@ -4,7 +4,7 @@ module NotificationsHelper
     when "Post"
       "フォローしている#{notification.notifiable.user.name}さんが投稿しました"
     else
-      "投稿した#{notification.notifiable.post.caption}が#{notification.notifiable.user.name}さんにいいねされました"
+      "あなた投稿が#{notification.notifiable.user.name}さんにいいねされました"
     end
   end
 end

@@ -4,6 +4,9 @@
     <%= render 'layouts/sidebar' %>
 
   <div style="flex:4;">
+    <% if @post.latitude > 0 %>
+  　　<div id="map" data-json='<%= @post_json %>'></div>
+　　<% end %>
     <div class='card-list-container py-5'>
       <div class='card mt-4 shadow-lg'>
       <% if @post.image.attached? %>
@@ -45,3 +48,7 @@
     <%= render "layouts/sidebar_r" %>
 
 </div>
+
+<% if @post.latitude > 0 %>
+  <%= javascript_pack_tag 'posts_show_map', 'data-turbolinks-track': 'reload' %>
+<% end %>
