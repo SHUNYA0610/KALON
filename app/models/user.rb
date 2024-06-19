@@ -25,7 +25,7 @@ class User < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no-image.jpg')
       back_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    back_image.variant(resize_to_fill: ["#{width}%", "#{height}%"]).processed
+    back_image.variant(resize_to_fill: [width, height]).processed
   end
 
   def get_profile_image(width, height)

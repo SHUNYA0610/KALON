@@ -1,6 +1,6 @@
 <div>
   <div style="position: relative; width: 100%">  
-    <%= image_tag user.get_back_image(75.034,24.966) %>
+    <%= image_tag user.get_back_image(751.38,250) %>
       <div style="position: absolute; bottom: -40px; left: 30px; width: 100%; display: flex; justify-content: space-between;">
         <%= image_tag user.get_profile_image(100 ,100), class: "rounded-circle"%>
         <% if current_user != user %>
@@ -27,7 +27,7 @@
           <%= fields_for entry do |e| %>
             <%= e.hidden_field :user_id, value: user.id %>
           <% end %>
-          <%= f.submit "チャットを始める", class:"btn btn-outline-secondary"%>
+          <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
         <% end %>
       <% end %>
       <% end %>
