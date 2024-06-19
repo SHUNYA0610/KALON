@@ -15,10 +15,19 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   
   has_one_attached :profile_image
+  has_one_attached :back_image
   
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
   
+  def get_back_image(width, height)
+    unless back_image.attached?
+      file_path = Rails.root.join('app/assets/images/no-image.jpg')
+      back_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    back_image.variant(resize_to_fill: ["#{width}%", "#{height}%"]).processed
+  end
+
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no-image.jpg')

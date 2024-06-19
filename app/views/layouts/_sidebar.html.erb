@@ -44,7 +44,7 @@
     <% end %>
   </div>
   <div style="margin:20px 0 0 10px;"><!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ポストする</button>
+    <button type="button"  data-toggle="modal" data-target="#exampleModal" style="padding: 10px; border-radius: 25px; color: #D43EFF; background-color: white; border: 1px white solid; width: 90%; font-weight: bold; "="#exampleModal">ポストする</button>
   </div>
 
 <% elsif admin_signed_in? %>
@@ -69,6 +69,16 @@
       <i class="fa-solid fa-people-roof"></i>　グループ一覧
     <% end %>
   </div>
+  <div class="mt-2 mb-2 h5">
+    <%= link_to new_admin_banner_path, class: 'nav-link sidebar-link' do %>
+      <i class="fa-solid fa-tower-cell"></i>　バナー作成
+    <% end %>
+  </div>
+  <div class="mt-2 mb-2 h5">
+    <%= link_to admin_banners_path, class: 'nav-link sidebar-link' do %>
+      <i class="fa-solid fa-tower-cell"></i>　バナー一覧
+    <% end %>
+  </div>  
   <div class="mt-2 mb-2 h5">
     <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link sidebar-link' do %>
       <i class="fas fa-sign-out-alt"></i>　ログアウト

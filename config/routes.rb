@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   devise_for :user,skip: [:passwords], controllers: {
     registrations: "user/registrations",
     sessions: 'user/sessions',
-    passwords: 'users/passwords'
+    passwords: 'user/passwords'
   }
-  
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -20,14 +20,14 @@ Rails.application.routes.draw do
   root to: 'user/homes#top'
   get 'home/about' => 'user/homes#about', as: 'about'
   get "/search", to: "user/searches#search"
-  
+
   scope module: :user do
-    
+
     resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
-    
+
     resources :users, only: [:index, :show, :update, :edit, :destroy] do
       resource :relationships, only: [:create, :destroy]
     	get "followings" => "relationships#followings", as: "followings"
@@ -36,20 +36,19 @@ Rails.application.routes.draw do
        get :favorites
       end
     end
-  
+
     resources :groups, only:  [:new, :index, :show, :create, :edit, :update, :destroy] do
       resource :group_users, only: [:create, :destroy]
-      get "join" =>"groups#join"
       get "new/mail" => "groups#new_mail"
       get "send/mail" => "groups#send_mail"
     end
     resources :messages, only: [:create]
     resources :rooms, only: [:create,:show]
-    
+
     get 'tagsearches/search', to: 'tagsearches#search'
 
     resources :notifications, only: [:update]
-    
+
   end
 
   namespace :admin do
@@ -64,9 +63,11 @@ Rails.application.routes.draw do
       get "/change_is_group_creator", to: "users#change_is_group_creator"
     end
 
-    resources :groups, only:  [:index, :show, :destroy]
+    resources :groups, only: [:index, :show, :destroy]
 
     get 'tagsearches/search', to: 'tagsearches#search'
+
+    resources :banners, only: [:new, :index, :create, :update, :destroy, :show, :edit]
   end
 
 end

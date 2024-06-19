@@ -1,0 +1,17 @@
+<h2>バナー作成</h2>
+<%= form_with model: banner, url: admin_banners_path(banner) do |f| %>
+  <div>
+    <%= f.text_field :url, placeholder: "URL", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; " %>
+  </div>
+  <div>
+    <%= f.label :バナー画像 %>
+    <%= f.file_field :image, accept: "image/*", style: "margin-top: 5px;" %>
+  </div>
+  <div>
+    <%= f.radio_button :visible, true %> 表示
+    <%= f.radio_button :visible, false %> 非表示
+  </div>
+  <div>
+    <%= f.submit "追加" , style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
+  </div>
+<% end %>

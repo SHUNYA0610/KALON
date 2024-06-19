@@ -1,37 +1,39 @@
-<div class="row">
+<div class="row" style="margin-top: 150px" >
 
-  <div class="col-6">
-    <%= image_tag "logo.png", size: "500x500" %>
+  <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+      <%= image_tag "logo.png", size: "500x500" %>
   </div>
-  
-  <div class="col-6">
-    <h2>ログイン</h2>
-    
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.text_field :name, placeholder: "アカウント名", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
-      </div>
-    
-      <div class="field">
-        <%= f.password_field :password, placeholder: "パスワード", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
-      </div>
-      <%= link_to "パスワードの変更", edit_user_registration_path %>
-      <% if devise_mapping.rememberable? %>
+
+  <div style="width: 50%; display: flex; justify-content: center; ">
+    <div style="width: 50%; margin-top: 50px;">
+      <h2>ログイン</h2>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :私はロボットではありません。 %>
+          <%= f.text_field :name, placeholder: "アカウント名", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password, placeholder: "パスワード", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
+        </div>
+        <div><%= link_to "パスワードの変更", edit_user_registration_path %></div>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :私はロボットではありません。%>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "ログイン" , style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
         </div>
       <% end %>
-    
-      <div class="actions">
-        <%= f.submit "ログイン" , style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 50%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
-      </div>
-    <% end %>
-    
-    <%= render "user/shared/links" %>
-    
-    <%= link_to "管理者", new_admin_session_path %>
-    
+
+      <div><%= render "user/shared/links" %></div>
+      <div><%= link_to "管理者", new_admin_session_path %></div>
+      <div><%= link_to "トップ画面に戻る", root_path %></div>
+    </div>
+
   </div>
-  
+
 </div>

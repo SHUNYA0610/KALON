@@ -44,7 +44,7 @@ class User::GroupsController < ApplicationController
     @group.destroy
     redirect_to groups_path
   end
-    
+  
   def new_mail
     @group = Group.find(params[:group_id])
     @post = Post.new

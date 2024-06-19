@@ -1,4 +1,6 @@
 class User::PostsController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update]
+  
   def index
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
@@ -38,7 +40,6 @@ class User::PostsController < ApplicationController
   
   def edit
     @post = Post.find(params[:id])
-
   end
 
   def update
@@ -51,6 +52,13 @@ class User::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:image, :shop, :caption, :category, :address)
+  end
+  
+  def ensure_correct_user
+    post = Post.find(params[:id])
+    unless post.user_id == current_user.id
+      redirect_to posts_path
+    end
   end
   
 end

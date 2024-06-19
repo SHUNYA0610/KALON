@@ -1,21 +1,22 @@
-<div class="row">
+<div class="row" style="margin-top: 150px" >
 
-  <div class="col-6">
+  <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
     <%= image_tag "logo.png", size: "500x500" %>
   </div>
   
-  <div class="col-6">
+  <div style="width: 50%; display: flex; justify-content: center; ">
+    <div style="width: 50%; margin-top: 40px;">
     <h2>新規登録</h2>
     
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "user/shared/error_messages", resource: resource %>
     
       <div class="field">
-        <%= f.text_field :name, placeholder: "アカウント名", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
+        <%= f.text_field :name, placeholder: "アカウント名", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
       </div>
       
       <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Eメール", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Eメール", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
       </div>
     
       <div class="field">
@@ -23,20 +24,22 @@
         <% if @minimum_password_length %>
         <em>（<%= @minimum_password_length %> 文字以上）</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
       </div>
     
       <div class="field">
         <%= f.label :パスワード（確認） %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード（確認）", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 50%;" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード（確認）", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
       </div>
     
       <div class="actions">
-        <%= f.submit "新規登録", style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 50%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
+        <%= f.submit "新規登録", style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
       </div>
     <% end %>
     
     <%= render "user/shared/links" %>
+    <div><%= link_to "トップ画面に戻る", root_path %></div>
+    </div>
   </div>
-  
+
 </div>

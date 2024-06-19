@@ -66,6 +66,5 @@ group :production do
   gem 'mysql2'
 end
 
-
 gem "net-pop"
 gem "net-imap"

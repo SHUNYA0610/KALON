@@ -3,7 +3,7 @@
   <%= render "user/posts/post_modal", post: @new_post  %>
     <%= render 'layouts/sidebar' %>
 
-  <div class="" style="flex: 4;">
+  <div style="flex: 4;">
     <%= render 'layouts/error', obj: @post %> 
     <h1>ポストの編集</h1>
     <%= form_with model: @post, mothod: :patch do |f| %>
@@ -23,6 +23,7 @@
         <%= f.text_field :category, placeholder: "カテゴリー", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%;" %>
       </div>
       <div>
+        <%= f.label :画像 %>
         <%= f.file_field :image, accept: "image/*", style: "margin-top: 5px;" %>
       </div>
       <div>
