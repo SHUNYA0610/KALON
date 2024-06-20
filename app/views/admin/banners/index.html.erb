@@ -16,7 +16,7 @@
         <tbody>
           <% @banners.each do |banner| %>
             <tr>
-
+              <td><%= image_tag banner.get_banner_image(50,50) %><%#= image_tag banner.banner_image if banner.banner_image.attached? %></td>
               <td><%= banner.url %></td>
               <td><%= banner.visible ? '表示' : '非表示' %></td>
               <td><%= link_to '削除', admin_banner_path(banner), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,3 +29,51 @@
     <%= render "layouts/sidebar_r" %>
 
 </div>
+
+ <h2>Active Banners</h2>
+<div id="banner-carousel" class="carousel">
+  <% @banners.select(&:visible).each do |banner| %>
+<div class="carousel-item"> 
+ <%= link_to banner.url, target: "_blank" do %> 
+  <%= image_tag banner.get_banner_image(100, 100) %> 
+ <% end %> 
+</div>
+  <% end %>
+</div>
+
+<style>
+.carousel {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+.carousel-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.carousel-item.active {
+  opacity: 1;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const items = document.querySelectorAll('.carousel-item');
+  let currentItem = 0;
+
+  function showNextItem() {
+    items[currentItem].classList.remove('active');
+    currentItem = (currentItem + 1) % items.length;
+    items[currentItem].classList.add('active');
+  }
+
+  if (items.length > 0) {
+    items[currentItem].classList.add('active');
+    setInterval(showNextItem, 3000); // 3秒ごとにバナーを切り替え
+  }
+});
+</script>

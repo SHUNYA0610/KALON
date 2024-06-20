@@ -16,7 +16,6 @@
         <div class="field">
           <%= f.password_field :password, placeholder: "パスワード", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
         </div>
-        <div><%= link_to "パスワードの変更", edit_user_registration_path %></div>
         <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
