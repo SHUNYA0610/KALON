@@ -28,8 +28,8 @@
               <%= f.submit "プロフィール更新", style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
             </div>
           <% end %>
-          <div><%= button_to "アカウント削除", user_path(current_user.id), data: { confirm: "本当に削除して宜しいですか?削除するとアカウントの復旧はできません。", turbo_confirm: "本当に削除して宜しいですか？削除するとアカウントの復旧はできません。" }, method: :delete %></div>
-         <div><%= link_to "パスワードの変更", edit_user_registration_path %></div>
+          <div><%= link_to "パスワードの変更", edit_user_registration_path %></div>
+          <div><%= link_to "アカウント削除", user_path(current_user.id), data: { confirm: "本当に削除して宜しいですか?削除するとアカウントの復旧はできません。", turbo_confirm: "本当に削除して宜しいですか？削除するとアカウントの復旧はできません。" }, method: :delete %></div>
         </div>
       </div>
     </div>

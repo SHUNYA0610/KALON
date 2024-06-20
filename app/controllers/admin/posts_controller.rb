@@ -3,6 +3,7 @@ class Admin::PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
+    @banners = Banner.all
   end
 
   def show
@@ -10,6 +11,7 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     @post_comment = PostComment.new
+    @banners = Banner.all
   end
   
   def destroy

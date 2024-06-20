@@ -13,6 +13,7 @@ class User::SearchesController < ApplicationController
       @records = Post.search_for(@content, @method)
     end
     @new_post = Post.new
+    @banners = Banner.all
   end
   
 end

@@ -2,10 +2,12 @@ class Admin::GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+    @banners = Banner.all
   end
 
   def show
     @group = Group.find(params[:id])
+    @banners = Banner.all
   end
 
   def destroy

@@ -13,5 +13,6 @@ class Admin::SearchesController < ApplicationController
       @records = Post.search_for(@content, @method)
     end
   end
+    @banners = Banner.all
   
 end

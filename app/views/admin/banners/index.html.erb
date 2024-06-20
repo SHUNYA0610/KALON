@@ -4,7 +4,7 @@
 
   <div style="flex:4;">
     <h2>バナー</h2>
-      <table>
+      <table class="table">
         <thead>
           <tr>
             <th>画像</th>
@@ -16,10 +16,11 @@
         <tbody>
           <% @banners.each do |banner| %>
             <tr>
-              <td><%= image_tag banner.get_banner_image(50,50) %><%#= image_tag banner.banner_image if banner.banner_image.attached? %></td>
-              <td><%= banner.url %></td>
-              <td><%= banner.visible ? '表示' : '非表示' %></td>
-              <td><%= link_to '削除', admin_banner_path(banner), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td class="align-middle"><%= image_tag banner.get_banner_image(50,50) %><%#= image_tag banner.banner_image if banner.banner_image.attached? %></td>
+              <td class="align-middle"><%= banner.url %></td>
+              <td class="align-middle"><%= banner.visible ? '表示' : '非表示' %></td>
+              <td class="align-middle"><%= link_to '編集', edit_admin_banner_path(banner), class: "btn btn-sm btn btn-outline-success" %></td>
+              <td class="align-middle"><%= link_to '削除', admin_banner_path(banner), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-sm btn-outline-danger"  %></td>
             </tr>
           <% end %>
         </tbody>

@@ -5,6 +5,7 @@ class User::UsersController < ApplicationController
     @users = User.all
     @user = current_user
     @post = Post.new
+    @banners = Banner.all
   end
 
   def show
@@ -30,11 +31,13 @@ class User::UsersController < ApplicationController
     end
     @posts = @user.posts.order(created_at: :desc)
     @post = Post.new
+    @banners = Banner.all
   end
 
   def edit
     @user = User.find(params[:id])
     @new_post = Post.new
+    @banners = Banner.all
   end
 
   def update
@@ -58,6 +61,7 @@ class User::UsersController < ApplicationController
     favorites= Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = Post.where(id: favorites).order(created_at: :desc)
     @post = Post.new
+    @banners = Banner.all
   end
 
   private

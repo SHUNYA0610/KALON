@@ -3,11 +3,13 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
+    @banners = Banner.all
   end
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: :desc)
+    @banners = Banner.all
   end
 
   def destroy

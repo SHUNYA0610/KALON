@@ -20,7 +20,7 @@
         通知
         <span class="badge badge-danger"><%= current_user.notifications.where(read: false).count %></span>
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 270px;">
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 380px;">
         <% if current_user.notifications.where(read: false).any? %>
           <small class="disabled" style="display: block;">直近5件の未読の通知を表示しています</small>
           <% current_user.notifications.where(read: false).limit(5).order(created_at: :desc).each do |notification| %>
@@ -38,7 +38,7 @@
       <% @banners.select(&:visible).each do |banner| %>
     <div class="carousel-item"> 
      <%= link_to banner.url, target: "_blank" do %> 
-      <%= image_tag banner.get_banner_image(100, 100) %> 
+      <%= image_tag banner.get_banner_image(413.5, 800) %> 
      <% end %> 
     </div>
       <% end %>

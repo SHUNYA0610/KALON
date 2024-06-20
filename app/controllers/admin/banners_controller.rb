@@ -6,10 +6,12 @@ class Admin::BannersController < ApplicationController
 
   def new
     @banner = Banner.new
+    @banners = Banner.all
   end
 
   def edit
     @banner = Banner.find(params[:id])
+    @banners = Banner.all
   end
 
   def create

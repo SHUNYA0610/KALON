@@ -5,16 +5,19 @@ class User::GroupsController < ApplicationController
   def index
     @post = Post.new
     @groups = Group.all
+    @banners = Banner.all
   end
 
   def show
     @post = Post.new
     @group = Group.find(params[:id])
+    @banners = Banner.all
   end
 
   def new
     @group = Group.new
     @post = Post.new
+    @banners = Banner.all
   end
 
   def create
@@ -29,6 +32,7 @@ class User::GroupsController < ApplicationController
 
   def edit
     @post = Post.new
+    @banners = Banner.all
   end
 
   def update
@@ -48,6 +52,7 @@ class User::GroupsController < ApplicationController
   def new_mail
     @group = Group.find(params[:group_id])
     @post = Post.new
+    @banners = Banner.all
   end
 
   def send_mail
@@ -57,6 +62,7 @@ class User::GroupsController < ApplicationController
     @mail_content = params[:mail_content]
     ContactMailer.send_mail(@mail_title, @mail_content,group_users).deliver
     @post = Post.new
+    @banners = Banner.all
   end
   
   private

@@ -5,5 +5,6 @@ class User::TagsearchesController < ApplicationController
     @posts = Post.where("category LIKE ?", "%#{@word}%")
     render "user/tagsearches/tagsearch"
     @new_post = Post.new
+    @banners = Banner.all
   end
 end

@@ -5,6 +5,7 @@ class User::PostsController < ApplicationController
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
     @following_posts= Post.where(user_id: [*current_user.following_ids]).order(created_at: :desc)
+    @banners = Banner.all
   end
 
   def create
@@ -30,6 +31,7 @@ class User::PostsController < ApplicationController
     @new_post = Post.new
     @post_comment = PostComment.new
     @post_json = @post.attributes.symbolize_keys.select { |k, v| k.match(/id|shop|address|latitude|longitude/) }.to_json
+    @banners = Banner.all
   end
   
   def destroy
@@ -40,6 +42,7 @@ class User::PostsController < ApplicationController
   
   def edit
     @post = Post.find(params[:id])
+    @banners = Banner.all
   end
 
   def update

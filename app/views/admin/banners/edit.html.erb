@@ -1,0 +1,27 @@
+<div class="row">
+
+    <%= render 'layouts/sidebar' %>
+
+  <div style="flex:4;">
+    <h2>バナー編集</h2>
+    <%= form_with model: [:admin, @banner], method: :patch do |f| %>
+      <div>
+        <%= f.text_field :url, placeholder: "URL", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; " %>
+      </div>
+      <div>
+        <%= f.label :バナー画像 %>
+        <%= f.file_field :banner_image, accept: "image/*", style: "margin-top: 5px;" %>
+      </div>
+      <div>
+        <%= f.radio_button :visible, true %> 表示
+        <%= f.radio_button :visible, false %> 非表示
+      </div>
+      <div>
+        <%= f.submit "更新" , style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: 3px white solid;; background-color: #D43EFF; margin-top: 15px;"%>
+      </div>
+    <% end %>
+  </div>
+  
+    <%= render "layouts/sidebar_r" %>
+
+</div>
