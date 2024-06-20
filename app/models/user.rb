@@ -71,6 +71,9 @@ class User < ApplicationRecord
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
   end
+def guest?
+  email == 'guest@example.com'
+end
   
   def self.search_for(content, method)
     if method == 'perfect'

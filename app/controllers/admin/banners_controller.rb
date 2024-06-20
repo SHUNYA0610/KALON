@@ -38,5 +38,4 @@ class Admin::BannersController < ApplicationController
   def banner_params
     params.require(:banner).permit(:banner_image, :url, :visible)
   end
-  
 end
