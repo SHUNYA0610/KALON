@@ -31,11 +31,11 @@
     <% end %>
     </div>
     <div>
-      <div id="banner-carousel" style="margin-top: 10px; width: 100%; overflow: hidden;">
+      <div id="banner-carousel" style="margin:0 auto; margin-top: 10px; width: 100%; overflow: hidden;">
         <% @banners.select(&:visible).each do |banner| %>
           <div class="carousel-item"> 
            <%= link_to banner.url, target: "_blank" do %> 
-            <%= image_tag banner.get_banner_image(400, 695) %> 
+            <%= image_tag banner.get_banner_image(380, 695) %> 
            <% end %> 
           </div>
         <% end %>
