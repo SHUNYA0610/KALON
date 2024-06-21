@@ -3,12 +3,12 @@
   <%= render "user/posts/post_modal", post: @new_post %>
     <%= render "layouts/sidebar" %>
 
-  <div class="col-7">
+  <div style="flex:4;">
     <% if @model == 'user' %>
-      <h3>Users search for "<%= @content %>"</h3>
+      <h3>ユーザーの"<%= @content %>"検索結果</h3>
     <%= render 'user/users/index', users: @records %>
     <% elsif @model == 'post' %>
-      <h3>Posts search for "<%= @content %>"</h3>
+      <h3>ポストの"<%= @content %>"検索結果</h3>
     <%= render 'user/posts/index', posts: @records %>
   <% end %>
   </div>

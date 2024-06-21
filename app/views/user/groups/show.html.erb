@@ -23,12 +23,12 @@
           <% else %>
           <td class="align-middle"><%= image_tag "no-image.jpg", size: "50x50",class: "rounded-circle" %></td>
           <% end %>
-          <td><%= @group.name %></td>
-          <td><%= @group.introduction %></td>
+          <td class="align-middle"><%= @group.name %></td>
+          <td class="align-middle"><%= @group.introduction %></td>
           <% @group.users.each do |user| %>
-　　        <td style="list-style: none;"><%= user.name %></td>
+　　        <td class="align-middle" style="list-style: none;"><%= user.name %></td>
           <% end %>
-          <td>
+          <td class="align-middle">
             <% if @group.owner_id == current_user.id %>
             　　<%= link_to '編集', edit_group_path(@group), class: "btn btn-sm btn-success" %>
             　　<%= link_to 'Mail',group_new_mail_path(@group), class: "fas fa-paper-plane" %>
