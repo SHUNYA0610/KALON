@@ -85,4 +85,29 @@
   </div>
 <% end %>
 
+  <div style="margin:10px 0 0 10px;">
+    <button class="scroll-to-top-button" onclick="scrollToTop()" style="padding: 10px; border-radius: 25px; color: #D43EFF; background-color: white; border: 1px white solid; width: 90%; font-weight: bold; display:none;">
+      <i class="fa-solid fa-chevron-up"></i> トップへ
+    </button>
+  </div>
+  
 </div>
+
+<script>
+  // JavaScript code here
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
+  }
+
+  window.onscroll = function() {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.querySelector('.scroll-to-top-button').style.display = 'block';
+    } else {
+      document.querySelector('.scroll-to-top-button').style.display = 'none';
+    }
+  }
+</script>
