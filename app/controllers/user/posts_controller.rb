@@ -4,7 +4,6 @@ class User::PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
-    @following_posts= Post.where(user_id: [*current_user.following_ids]).order(created_at: :desc)
     @banners = Banner.all
   end
 

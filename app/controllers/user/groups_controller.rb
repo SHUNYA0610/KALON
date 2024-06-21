@@ -5,6 +5,8 @@ class User::GroupsController < ApplicationController
   def index
     @post = Post.new
     @groups = Group.all
+    @join_groups = current_user.groups
+    @owned_groups = current_user.owned_groups 
     @banners = Banner.all
   end
 

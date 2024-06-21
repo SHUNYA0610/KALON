@@ -1,6 +1,6 @@
 <div style="flex: 2.2;position: sticky;top: 0;left: 0;height: 100vh;margin: 5px 0px 0px 20px;padding-top: 20px; padding: 8px;">
   <div style="border: 3px lightgray solid;padding: 15px; border-radius: 15px; ">
-    <% if current_admin.email == "admin@admin" %>
+  　<% if admin_signed_in? %>
     <div>
       <%= render 'admin/tagsearches/tagsearch' %>
     </div>
