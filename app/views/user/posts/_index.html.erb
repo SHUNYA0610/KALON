@@ -1,5 +1,6 @@
-  <div class="card-list-container py-2">
-<% posts.each do |post| %>
+<div class="card-list-container py-2">
+  <% posts.each do |post| %>
+   <%= link_to post_path(post.id), class: "card-link" do %>
     <div class="card mt-4 shadow-lg">
       <% if post.image.attached? %>
         <%= image_tag post.get_image, class: 'card-img-top' %>
@@ -13,7 +14,7 @@
             <p class='card-title'>
               <%= post.user.name %>
             </p>
-            <strong><i class="fa-solid fa-shop"></i>　<span><%= link_to post_path(post.id) do %><%= post.shop %></span></strong><% end %>
+            <%= link_to post_path(post.id) do %><strong><i class="fa-solid fa-shop"></i>　<span><%= post.shop %></span></strong><% end %>
             <span><p class='card-text'></p><%= post.caption %></p></span>
             <% if post.category.present? %>
               <span><%=link_to post.category,tagsearches_search_path(content: post.category)%></span>
@@ -24,6 +25,6 @@
         </div>
       </div>
     </div>
-
-<% end %>
-  </div>
+   <% end %>
+  <% end %>
+</div>

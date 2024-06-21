@@ -6,6 +6,7 @@
   <div style="flex:4;">
     <h2>ブックマーク</h2>
     <% @favorite_posts.each do |post| %>
+     <%= link_to post_path(post.id), class: "card-link" do %>
       <div class="card-list-container py-2">
         <div class="card mt-4 shadow-lg">
           <% if post.image.attached? %>
@@ -32,6 +33,7 @@
           </div>
         </div>
       </div>
+     <% end %>
     <% end %>
   </div>
 

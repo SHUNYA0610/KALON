@@ -7,8 +7,7 @@
     <div>
       <%= render "admin/searches/form" %>
     </div>
-    <% end %>
-  　<% if user_signed_in? %>
+    <% elsif user_signed_in? %>
   　<div>
       <%= render 'user/tagsearches/tagsearch' %>
     </div>
@@ -24,51 +23,32 @@
         <% if current_user.notifications.where(read: false).any? %>
           <small class="disabled" style="display: block;">直近5件の未読の通知を表示しています</small>
           <% current_user.notifications.where(read: false).limit(5).order(created_at: :desc).each do |notification| %>
-            <%= link_to notification_message(notification), notification_path(notification), method: :patch, style: "display: block;" %>
-          <% end %>
+            <%= link_to notification_message(notification), notification_path(notification), method: :patch, style: "display: block;" %><% end %>
         <% else %>
           <span class="dropdown-item disabled">未読の通知はありません</span>
         <% end %>
       </div>
     <% end %>
     </div>
-  </div>
-  <div>
-    <div id="banner-carousel" class="carousel">
-      <% @banners.select(&:visible).each do |banner| %>
-    <div class="carousel-item"> 
-     <%= link_to banner.url, target: "_blank" do %> 
-      <%= image_tag banner.get_banner_image(413.5, 800) %> 
-     <% end %> 
-    </div>
-      <% end %>
+    <div>
+      <div id="banner-carousel" style="margin-top: 10px; width: 100%; overflow: hidden;">
+        <% @banners.select(&:visible).each do |banner| %>
+          <div class="carousel-item"> 
+           <%= link_to banner.url, target: "_blank" do %> 
+            <%= image_tag banner.get_banner_image(400, 695) %> 
+           <% end %> 
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
-
-<style>
-.carousel {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  overflow: hidden;
-}
-.carousel-item {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-.carousel-item.active {
-  opacity: 1;
-}
-</style>
 
 <script>
 $(document).ready(function() {
   const items = $('.carousel-item');
   let currentItem = 0;
+  let interval;
 
   function showNextItem() {
     items.eq(currentItem).removeClass('active');
@@ -76,9 +56,25 @@ $(document).ready(function() {
     items.eq(currentItem).addClass('active');
   }
 
+  function startCarousel() {
+    interval = setInterval(showNextItem, 3000); // 3秒ごとにバナーを切り替え
+  }
+
+  function stopCarousel() {
+    clearInterval(interval);
+  }
+
+  // 初期化
   if (items.length > 0) {
     items.eq(currentItem).addClass('active');
-    setInterval(showNextItem, 3000); // 3秒ごとにバナーを切り替え
+    startCarousel();
   }
+
+  // マウスオーバーで停止、マウスアウトで再開
+  $('#banner-carousel').on('mouseenter', function() {
+    stopCarousel();
+  }).on('mouseleave', function() {
+    startCarousel();
+  });
 });
 </script>
