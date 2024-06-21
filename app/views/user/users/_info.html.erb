@@ -2,7 +2,7 @@
   <div style="position: relative; width: 100%">  
     <%= image_tag user.get_back_image(751.38,250) %>
       <div style="position: absolute; bottom: -40px; left: 30px; width: 100%; display: flex; justify-content: space-between;">
-        <%= image_tag user.get_profile_image(100 ,100), class: "rounded-circle"%>
+        <%= image_tag user.get_profile_image(100, 100), class: "rounded-circle", style: "box-shadow: 0 0 0 5px white;" %>
        <% if current_user != user %>
         <div class="" style="margin: 70px 29px 0 0;">
           <%= render 'user/relationships/btn', user: user %></span>
