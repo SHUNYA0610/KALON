@@ -25,6 +25,7 @@ class User::GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
+    @banners = Banner.all
     if @group.save
       redirect_to groups_path
     else
@@ -40,6 +41,7 @@ class User::GroupsController < ApplicationController
   def update
     if @group.update(group_params)
       redirect_to groups_path
+   　　@banners = Banner.all
     else
       render "edit"
     end
