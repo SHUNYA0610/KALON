@@ -6,11 +6,19 @@
   <div style="flex:4;">
     <% if @model == 'user' %>
       <h3>ユーザーの"<%= @content %>"検索結果</h3>
-    <%= render 'user/users/index', users: @records %>
+      <% if @records.exists? %>
+          <%= render 'user/users/index', users: @records %>
+      <% else %>
+      　　<p>一致するユーザーが存在しません</p>
+    　<% end %>
     <% elsif @model == 'post' %>
       <h3>ポストの"<%= @content %>"検索結果</h3>
-    <%= render 'user/posts/index', posts: @records %>
-  <% end %>
+      <% if @records.exists? %>
+   　　　　 <%= render 'user/posts/index', posts: @records %>
+      <% else %>
+      　　<p>一致するポストが存在しません</p>
+    　<% end %>
+    <% end %>
   </div>
 
     <%= render "layouts/sidebar_r" %>

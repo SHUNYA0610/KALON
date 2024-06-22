@@ -4,7 +4,11 @@
   
   <div style="flex:4;">
     <h2>タグ検索結果</h2>
+    <% if @posts.exists? %>
     <%= render 'admin/posts/index', posts: @posts %>
+    <% else %>
+      <p>タグが存在しません</p>
+    <% end %>
   </div>
 
     <%= render "layouts/sidebar_r" %>
