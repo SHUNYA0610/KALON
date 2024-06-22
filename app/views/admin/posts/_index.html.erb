@@ -1,5 +1,6 @@
-<% posts.each do |post| %>
-  <div class="card-list-container py-2">
+<div class="card-list-container py-2">
+  <% posts.each do |post| %>
+    <%= link_to post_path(post.id), class: "card-link" do %>
     <div class="card mt-4 shadow-lg">
       <% if post.image.attached? %>
         <%= image_tag post.get_image, class: 'card-img-top';%>
@@ -24,5 +25,6 @@
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+   <% end %>
+  <% end %>
+</div>
