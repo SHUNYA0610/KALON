@@ -39,4 +39,42 @@
   </div>
 </div>
 
+<script>
+  $(document).ready(function() {
+    // Initially disable the submit button and apply initial styles
+    var submitButton = $('input[type="submit"]');
+    submitButton.prop('disabled', true).css({
+      'color': 'white',
+      'padding': '8px',
+      'border-radius': '12px',
+      'margin-bottom': '10px',
+      'width': '100%',
+      'border': '3px white solid',
+      'background-color': '#CCCCCC'  // Initial color when disabled
+    });
+
+    // Enable submit button only if comment is not empty
+    $('textarea[name="post[caption]"]').keyup(function() {
+      var empty = $(this).val().trim() === '';
+      submitButton.prop('disabled', empty);
+      if (empty) {
+        submitButton.css('background-color', '#CCCCCC');  // Change to disabled color
+      } else {
+        submitButton.css('background-color', '#D43EFF');  // Change to enabled color
+      }
+    });
+
+    // Change button color when hovered (optional)
+    submitButton.hover(function() {
+      if (!$(this).prop('disabled')) {
+        $(this).css('background-color', '#AA1FD4');  // Color when hovered and enabled
+      }
+    }, function() {
+      if (!$(this).prop('disabled')) {
+        $(this).css('background-color', '#D43EFF');  // Restore original color when not hovered
+      }
+    });
+  });
+</script>
+
 <%= javascript_pack_tag "jpostal",  'data-turbolinks-track': 'reload' %>
