@@ -1,19 +1,19 @@
 <div style="flex: 2.2;position: sticky;top: 0;left: 0;height: 100vh;margin: 5px 0px 0px 20px;padding-top: 20px; padding: 8px;">
   <div style="border: 3px lightgray solid;padding: 15px; border-radius: 15px; ">
   　<% if admin_signed_in? %>
-    <div>
-      <%= render 'admin/tagsearches/tagsearch' %>
-    </div>
-    <div>
-      <%= render "admin/searches/form" %>
-    </div>
+      <div>
+        <%= render 'admin/tagsearches/tagsearch' %>
+      </div>
+      <div>
+        <%= render "admin/searches/form" %>
+      </div>
     <% elsif user_signed_in? %>
-  　<div>
-      <%= render 'user/tagsearches/tagsearch' %>
-    </div>
-    <div>
-      <%= render "user/searches/form" %>
-    </div>
+    　<div>
+        <%= render 'user/tagsearches/tagsearch' %>
+      </div>
+      <div>
+        <%= render "user/searches/form" %>
+      </div>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         通知
@@ -35,7 +35,7 @@
         <% @banners.select(&:visible).each do |banner| %>
           <div class="carousel-item"> 
            <%= link_to banner.url, target: "_blank" do %> 
-            <%= image_tag banner.get_banner_image, style: "width: 100%; height: 630px" %> 
+            <%= image_tag banner.get_banner_image, style: "width: 100%; height: 630px;" %> 
            <% end %> 
           </div>
         <% end %>

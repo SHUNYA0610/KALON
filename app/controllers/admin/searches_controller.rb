@@ -12,7 +12,7 @@ class Admin::SearchesController < ApplicationController
     else
       @records = Post.search_for(@content, @method)
     end
+      @banners = Banner.all
   end
-    @banners = Banner.all
   
 end

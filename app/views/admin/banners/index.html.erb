@@ -16,7 +16,7 @@
         <tbody>
           <% @banners.each do |banner| %>
             <tr>
-              <td class="align-middle"><%= image_tag banner.get_banner_image(50,50) %><%#= image_tag banner.banner_image if banner.banner_image.attached? %></td>
+              <td class="align-middle"><%= image_tag banner.get_banner_image, style: "width: 50px; height: 50px" %> </td>
               <td class="align-middle"><%= banner.url %></td>
               <td class="align-middle"><%= banner.visible ? '表示' : '非表示' %></td>
               <td class="align-middle"><%= link_to '編集', edit_admin_banner_path(banner), class: "btn btn-sm btn btn-outline-success" %></td>

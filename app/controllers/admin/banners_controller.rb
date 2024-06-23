@@ -16,6 +16,7 @@ class Admin::BannersController < ApplicationController
 
   def create
     @banner = Banner.new(banner_params)
+    @banners = Banner.all
     if @banner.save
       redirect_to admin_banners_path
     else

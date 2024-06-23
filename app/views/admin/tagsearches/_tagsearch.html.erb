@@ -1,12 +1,8 @@
-<div class="serch_form" >
-  <table align="">
-    <tr>
-      <div class="serch_form">
+<div class="serch_form" style="margin-bottom: 10px;" >
       <%= form_with url: admin_tagsearches_search_path,method: :get, local: true do |f| %>
-      <td><%= f.text_field :content %></td>
-      <td><%= f.submit'タグ検索' %></td>
-      <% end %>
+      <div style="display: flex;">
+      <%= f.text_field :content, style: "border: 3px #D43EFF solid; border-radius: 10px; height: 40px; width: 40%;"%>
+      <%= f.submit'タグ検索',style: "padding: 8px; border-radius: 10px; color: white; background-color: #D43EFF  ; border: 1px white solid; width: 59%; font-weight: bold; margin-left: 5px;" %>
       </div>
-    </tr> 
-  </table>  
+      <% end %>
 </div>
