@@ -28,6 +28,7 @@
                 <% end %>
                 <span id="favorite_btn_<%= post.id %>"><%= render "user/favorites/btn", post: post %></span>
                 <span><%= render "user/post_comments/counter", post: post %></span>
+                <p class="card-text">作成日時: <%= post.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
               </div>
             </div>
           </div>

@@ -21,12 +21,12 @@ class User < ApplicationRecord
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
   
-  def get_back_image(width, height)
+  def get_back_image()
     unless back_image.attached?
       file_path = Rails.root.join('app/assets/images/no-image.jpg')
       back_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    back_image.variant(resize_to_fill: [width, height]).processed
+    back_image
   end
 
   def get_profile_image(width, height)
