@@ -20,7 +20,7 @@ class User::RoomsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
     @new_post = Post.new
-    @banners = Banner.all 
+    @banners = Banner.all
   end
-  
+
 end

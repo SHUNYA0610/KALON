@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users,dependent: :destroy
   has_many :owned_groups, class_name: 'Group', foreign_key: 'owner_id'
   has_many :notifications, dependent: :destroy
+  has_many :rooms, through: :entries, source: :room
 
   has_one_attached :profile_image
   has_one_attached :back_image
@@ -72,9 +73,9 @@ class User < ApplicationRecord
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
   end
-def guest?
-  email == 'guest@example.com'
-end
+  def guest?
+    email == 'guest@example.com'
+  end
   
   def self.search_for(content, method)
     if method == 'perfect'
