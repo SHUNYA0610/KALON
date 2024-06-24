@@ -6,6 +6,7 @@ class User::RegistrationsController < Devise::RegistrationsController
     user_path(current_user.id)
   end
 
+protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params

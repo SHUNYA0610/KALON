@@ -10,6 +10,8 @@ class Admin::SessionsController < Devise::SessionsController
     new_admin_session_path
   end
   
+protected
+
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email]) # emailパラメーターを許可
   end

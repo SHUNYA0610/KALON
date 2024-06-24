@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users,dependent: :destroy
   has_many :owned_groups, class_name: 'Group', foreign_key: 'owner_id'
   has_many :notifications, dependent: :destroy
-  
+
   has_one_attached :profile_image
   has_one_attached :back_image
   
