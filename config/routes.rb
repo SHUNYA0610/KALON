@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     get 'tagsearches/search', to: 'tagsearches#search'
 
     resources :notifications, only: [:update]
-    
+
     resources :banners, only: [:index]
 
   end

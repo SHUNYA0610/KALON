@@ -28,16 +28,14 @@
           <% @group.users.each do |user| %>
 　　        <td class="align-middle" style="list-style: none;"><%= user.name %></td>
           <% end %>
-          <td class="align-middle">
             <% if @group.owner_id == current_user.id %>
-            　　<%= link_to '編集', edit_group_path(@group), class: "btn btn-sm btn-success" %>
-            　　<%= link_to 'Mail',group_new_mail_path(@group), class: "fas fa-paper-plane" %>
+            　  <td class="align-middle"><%= link_to '編集', edit_group_path(@group), class: "btn btn-sm btn-success" %></td>
+            　  <td class="align-middle"><%= link_to 'Mail',group_new_mail_path(@group), class: "fas fa-paper-plane" %></td>
             <% elsif @group.includesUser?(current_user)%>
-            　　<%= link_to 'グループ退会', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
+            　  <td class="align-middle"><%= link_to 'グループ退会', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %></td>
             <% else %>
-            　　<%= link_to 'グループ参加', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %>
+            　  <td class="align-middle"><%= link_to 'グループ参加', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %></td>
             <% end %>
-          </td>
         </tr>
       </tbody>
       </table>

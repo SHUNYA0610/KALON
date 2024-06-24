@@ -39,9 +39,9 @@ class User::GroupsController < ApplicationController
   end
 
   def update
+    @banners = Banner.all
     if @group.update(group_params)
       redirect_to groups_path
-   　　@banners = Banner.all
     else
       render "edit"
     end

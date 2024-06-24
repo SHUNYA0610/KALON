@@ -4,6 +4,7 @@
     <%= render 'layouts/sidebar' %>
 
   <div style="flex:4;">
+    <%= render 'layouts/error', obj: @group %>
     <h3>グループの編集</h3>
     <%= render 'user/groups/form', group: @group %>
   </div>
