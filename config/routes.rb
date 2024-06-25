@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     resources :rooms, only: [:create,:show]
 
-    get 'tagsearches/search', to: 'tagsearches#search'
+    get '/tagsearches', to: 'tagsearches#search'
 
     resources :notifications, only: [:update]
 
@@ -65,7 +65,7 @@ Rails.application.routes.draw do
 
     resources :groups, only: [:index, :show, :destroy]
 
-    get 'tagsearches/search', to: 'tagsearches#search'
+    get '/tagsearches', to: 'tagsearches#search'
 
     resources :banners, only: [:new, :index, :create, :update, :destroy, :show, :edit]
   end
