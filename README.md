@@ -31,11 +31,19 @@
 - 美容に関する最新の情報を知りたいとき
 - 好きなビューラーを応援したいとき
 - 同じ価値観を持つユーザーと繋がりたいとき
-​
+
 ## 設計書
-<!-- 【補足説明】 -->
-<!-- - テーマ提出時点では不要です。 -->
-<!-- - 当項目には「後ほど作成予定」と記載しましょう。 -->
+ER図:  
+https://drive.google.com/file/d/1tgIIE9hN50hl5LUd8SFuDqpCUA27ZKaW/view?usp=drive_link
+
+テーブル定義書:
+https://docs.google.com/spreadsheets/d/1t3b65PdFxvg6RT24ZPUfSnDZ9PGwhEdhAx3kNbWroQY/edit?usp=drive_link　
+
+詳細設計書:  
+https://docs.google.com/spreadsheets/d/14q--gIVW5IreQatfDfC4Iq3RdC7IlZN0AdMmhbEhbh4/edit?usp=drive_link
+
+画面設計：  
+https://drive.google.com/file/d/1t3HiLjgJHqV4LFsY6r5VPdMLN5VCyrU_/view?usp=drive_link
 ​
 ## 開発環境
 - OS：Linux(CentOS)
@@ -46,6 +54,8 @@
 ​
 ## 使用素材
 　著作権を考慮し、架空のデータを扱う予定です。
-なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。  
+なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
 　バナー広告の遷移先サイトはスクール外で自身が作成したものであり、著作権保持者より本アプリに記載することを許可頂いております。
 もし、疑問点がある場合は遷移先のサイトに記載しております電話番号にお問い合わせください。代表者が直接対応致します。
+　使用フリー素材サイト  
+https://www.pakutaso.com/
