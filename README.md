@@ -51,7 +51,7 @@ https://drive.google.com/file/d/1t3HiLjgJHqV4LFsY6r5VPdMLN5VCyrU_/view?usp=shari
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-​
+
 ## 使用素材
 　著作権を考慮し、架空のデータを扱う予定です。
 なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
