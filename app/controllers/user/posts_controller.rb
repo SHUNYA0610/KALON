@@ -5,6 +5,7 @@ class User::PostsController < ApplicationController
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
     @banners = Banner.all
+    @following_posts= Post.where(user_id: [*current_user.following_ids]).order(created_at: :desc)    
   end
 
   def create
