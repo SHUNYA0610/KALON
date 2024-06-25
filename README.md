@@ -43,7 +43,7 @@ https://docs.google.com/spreadsheets/d/1t3b65PdFxvg6RT24ZPUfSnDZ9PGwhEdhAx3kNbWr
 https://docs.google.com/spreadsheets/d/14q--gIVW5IreQatfDfC4Iq3RdC7IlZN0AdMmhbEhbh4/edit?usp=drive_link
 
 画面設計：  
-https://drive.google.com/file/d/1t3HiLjgJHqV4LFsY6r5VPdMLN5VCyrU_/view?usp=drive_link
+https://drive.google.com/file/d/1t3HiLjgJHqV4LFsY6r5VPdMLN5VCyrU_/view?usp=sharing
 ​
 ## 開発環境
 - OS：Linux(CentOS)
