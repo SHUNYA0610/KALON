@@ -24,8 +24,8 @@ class User < ApplicationRecord
   
   def get_back_image()
     unless back_image.attached?
-      file_path = Rails.root.join('app/assets/images/no-image.jpg')
-      back_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+      file_path = Rails.root.join('app/assets/images/no-backimage.jpg')
+      back_image.attach(io: File.open(file_path), filename: 'back-image.jpg', content_type: 'image/jpeg')
     end
     back_image
   end
