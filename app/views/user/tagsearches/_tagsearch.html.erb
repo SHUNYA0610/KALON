@@ -1,16 +1,16 @@
 <div class="search_form" style="margin-bottom: 10px;">
   <%= form_with url: tagsearches_path, method: :get, local: true, id: 'searchForm' do |f| %>
     <div style="display: flex;">
-      <%= f.text_field :content, id: 'contentInput', style: "border: 3px #D43EFF solid; border-radius: 10px; height: 40px; width: 40%;" %>
-      <%= f.submit 'タグ検索', id: 'submitButton', disabled: true, style: "padding: 8px; border-radius: 10px; color: white; background-color: #D43EFF; border: 1px white solid; width: 59%; font-weight: bold; margin-left: 5px;" %>
+      <%= f.text_field :content, id: 'contentInputtag', style: "border: 3px #D43EFF solid; border-radius: 10px; height: 40px; width: 40%;" %>
+      <%= f.submit 'タグ検索', id: 'submitButtontag', disabled: true, style: "padding: 8px; border-radius: 10px; color: white; background-color: #D43EFF; border: 1px white solid; width: 59%; font-weight: bold; margin-left: 5px;" %>
     </div>
   <% end %>
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
-    const contentInput = document.getElementById('contentInput');
-    const submitButton = document.getElementById('submitButton');
+    const contentInput = document.getElementById('contentInputtag');
+    const submitButton = document.getElementById('submitButtontag');
 
     contentInput.addEventListener('input', function() {
       if (contentInput.value.trim() !== "") {

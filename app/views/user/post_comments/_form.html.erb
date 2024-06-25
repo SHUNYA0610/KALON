@@ -1,22 +1,32 @@
 <%= form_with model: [post, post_comment], local: false do |f| %>
   <%= f.text_area :comment, rows: '5', placeholder: "コメントを入力して下さい", id: "comment_area", style: "border: 3px #D43EFF solid; padding: 8px; border-radius: 25px; margin-bottom: 10px; width: 100%; margin-left: 0 auto;" %>
-  <%= f.submit "送信", id: "submit_button", disabled: true, style: "color: white; padding: 8px; border-radius: 12px; margin-bottom: 10px; width: 100%; border: 3px white solid; background-color: #D43EFF;" %>
+  <%= f.submit "送信", id: "submit_button_c", disabled: true, class: "disabled_button", style: "color: white; padding: 8px; border-radius: 12px; margin-bottom: 10px; width: 100%; border: 3px white solid;" %>
 <% end %>
+
 <script>
-    
-document.addEventListener("DOMContentLoaded", function() {
-  const commentArea = document.getElementById("comment_area");
-  const submitButton = document.getElementById("submit_button");
-
-  commentArea.addEventListener("input", function() {
-    if (commentArea.value.trim() !== "") {
-      submitButton.disabled = false;
-      submitButton.style.backgroundColor = "#D43EFF"; // 有効時の背景色
-    } else {
-      submitButton.disabled = true;
-      submitButton.style.backgroundColor = "#D3D3D3"; // 無効時の背景色
-    }
+  document.addEventListener("DOMContentLoaded", function() {
+    const commentArea = document.getElementById("comment_area");
+    const submitButton_c = document.getElementById("submit_button_c");
+  
+    commentArea.addEventListener("input", function() {
+      if (commentArea.value.trim() !== "") {
+        submitButton_c.disabled = false;
+        submitButton_c.classList.remove("disabled_button");
+        submitButton_c.classList.add("enabled_button");
+      } else {
+        submitButton_c.disabled = true;
+        submitButton_c.classList.remove("enabled_button");
+        submitButton_c.classList.add("disabled_button");
+      }
+    });
   });
-});
-
 </script>
+
+<style>
+  .enabled_button {
+    background-color: #D43EFF;
+  }
+  .disabled_button {
+    background-color: #D3D3D3;
+  }
+</style>

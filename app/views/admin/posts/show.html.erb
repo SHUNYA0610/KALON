@@ -6,7 +6,7 @@
     <div class='card-list-container py-5'>
       <div class='card mt-4 shadow-lg'>
       <% if @post.image.attached? %>
-        <%= image_tag @post.get_image, class: 'card-img-top';%>
+        <%= link_to admin_post_path(post.id), do %><%= image_tag @post.get_image, class: 'card-img-top';%>
         <%#= image_tag @post.image %>
       <% end %>
         <div class='card-body'>
