@@ -21,7 +21,7 @@
                 <p class='card-title'>
                   <%= post.user.name %>
                 </p>
-                <strong><i class="fa-solid fa-shop"></i>　<span><%= link_to post_path(post.id) do %><%= post.shop %></span></strong><% end %>
+                <%= link_to post_path(post.id) do %><strong><i class="fa-solid fa-shop"></i>　<span><%= post.shop %></span></strong><% end %>
                 <span><p class='card-text'></p><%= post.caption %></p></span>
                 <% if post.category.present? %>
                   <span><%=link_to post.category,tagsearches_search_path(content: post.category)%></span>
