@@ -8,16 +8,21 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
+  function setupSearchForm() {
     const contentInput = document.getElementById('contentInputtag');
     const submitButton = document.getElementById('submitButtontag');
 
-    contentInput.addEventListener('input', function() {
-      if (contentInput.value.trim() !== "") {
-        submitButton.disabled = false;
-      } else {
-        submitButton.disabled = true;
-      }
-    });
-  });
+    if (contentInput && submitButton) {
+      contentInput.addEventListener('input', function() {
+        if (contentInput.value.trim() !== "") {
+          submitButton.disabled = false;
+        } else {
+          submitButton.disabled = true;
+        }
+      });
+    }
+  }
+
+  document.addEventListener('turbolinks:load', setupSearchForm);
+  document.addEventListener('DOMContentLoaded', setupSearchForm);
 </script>
