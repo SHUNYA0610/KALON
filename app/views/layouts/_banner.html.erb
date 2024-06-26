@@ -1,0 +1,7 @@
+<% banners.select(&:visible).each do |banner| %>
+  <div class="carousel-item"> 
+   <%= link_to banner.url, target: "_blank" do %> 
+    <%= image_tag banner.get_banner_image, style: "width: 100%; height: 630px;" %> 
+   <% end %> 
+  </div>
+<% end %>
