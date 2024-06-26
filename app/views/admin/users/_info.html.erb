@@ -1,8 +1,11 @@
 <div>
-  <div class="d-flex justify-content-between">
-    <%= image_tag user.get_profile_image(100,100), class: "rounded-circle"%>
+  <div style="position: relative; width: 100%">  
+    <%= image_tag user.get_back_image(), style: "width: 100%; height: 250px;" %>
+    <div style="position: absolute; bottom: -40px; left: 30px; width: 100%; display: flex; justify-content: space-between;">
+    <%= image_tag user.get_profile_image(100, 100), class: "rounded-circle", style: "box-shadow: 0 0 0 5px white;" %>
+    </div>
   </div>
-  <div class="flex-column">
+  <div class="flex-column" style="margin-top: 50px;">
     <div>
       <div>
         <%= @user.name %>
