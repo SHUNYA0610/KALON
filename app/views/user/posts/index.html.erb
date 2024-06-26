@@ -1,6 +1,7 @@
 <div class='row'>
+
   <%= render "user/posts/post_modal", post: @post %>
-  <%= render 'layouts/sidebar' %>
+    <%= render 'layouts/sidebar' %>
 
   <div style="flex:4;">
     <%= render 'layouts/error', obj: @post %>
@@ -10,7 +11,7 @@
           <a class="nav-link active" data-toggle="tab" href="#section1">投稿一覧</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#section2" data-target="#section2-content">フォロー中</a>
+          <a class="nav-link" data-toggle="tab" href="#section2">フォロー中</a>
         </li>
       </ul>
 
@@ -18,88 +19,13 @@
         <div id="section1" class="tab-pane fade show active">
           <%= render 'user/posts/index', posts: @posts %>
         </div>
-        <div id="section2" class="tab-pane fade" aria-labelledby="section2-tab">
-          <div id="section2-content">
-            <%= render 'user/posts/following_post', following_posts: @following_posts %>
-          </div>
+        <div id="section2" class="tab-pane fade">
+          <%= render 'user/posts/following_post', following_posts: @following_posts %>
         </div>
       </div>
     </div>
   </div>
 
-  <%= render "layouts/sidebar_r" %>
+    <%= render "layouts/sidebar_r" %>
+
 </div>
-
-
-ChatGPT
-特定のタブ（#section2）の内容のみを再読み込みするために、以下の手順で実装を進めます。
-
-ビューの修正
-タブとコンテンツの設定: タブとその中のコンテンツを識別するためのIDを設定し、Ajaxリクエストを送信する際のURLを設定します。
-html
-コードをコピーする
-<div class='row'>
-  <%= render "user/posts/post_modal", post: @post %>
-  <%= render 'layouts/sidebar' %>
-
-  <div style="flex:4;">
-    <%= render 'layouts/error', obj: @post %>
-    <div class="tabs">
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#section1">投稿一覧</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#section2" data-target="#section2-content">フォロー中</a>
-        </li>
-      </ul>
-
-      <div class="tab-content">
-        <div id="section1" class="tab-pane fade show active">
-          <%= render 'user/posts/index', posts: @posts %>
-        </div>
-        <div id="section2" class="tab-pane fade" aria-labelledby="section2-tab">
-          <div id="section2-content">
-            <%= render 'user/posts/following_post', following_posts: @following_posts %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <%= render "layouts/sidebar_r" %>
-</div>
-JavaScriptの追加
-Ajaxによる再読み込み処理: #section2 のタブがクリックされたときにのみ、その中のコンテンツをAjaxで再読み込みするJavaScriptを追加します。
-html
-コードをコピーする
-<script>
-  $(document).ready(function() {
-    // タブがクリックされたときの処理
-    $('.nav-tabs a.nav-link').on('click', function(e) {
-      e.preventDefault(); // リンクのデフォルトの動作を無効化
-      
-      var targetTab = $(this).attr('href'); // クリックされたタブのhref属性（ターゲットのタブIDを取得）
-      var targetContent = $(this).data('target'); // クリックされたタブのデータ属性からタブのコンテンツIDを取得
-      var url = $(this).attr('href'); // クリックされたタブのhref属性（AjaxリクエストのURL）
-      
-      // section2 のタブがクリックされた場合のみAjaxリクエストを送信
-      if (targetTab === '#section2') {
-        // Ajaxリクエストを送信
-        $.ajax({
-          url: url,
-          type: 'GET',
-          dataType: 'html', // レスポンスがHTMLであることを指定
-          success: function(data) {
-            // 成功時の処理
-            $(targetContent).html(data); // 取得したHTMLデータでタブのコンテンツを更新
-          },
-          error: function() {
-            // エラー時の処理
-            console.error('コンテンツを読み込めませんでした。');
-          }
-        });
-      }
-    });
-  });
-</script>
