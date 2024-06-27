@@ -52,7 +52,7 @@
         <div id="section2" class="tab-pane fade">
           <%= render 'user/groups/join_index', join_groups: @join_groups %>
         </div>
-         <% if @owned_groups.any? %>
+         <% if current_user.is_group_creator %>
         <div id="section3" class="tab-pane fade">
           <%= render 'user/groups/owned_index', owned_groups: @owned_groups %>
         </div>
