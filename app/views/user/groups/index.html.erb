@@ -12,7 +12,7 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#section2">参加グループ</a>
         </li>
-        <% if @owned_groups.any? %>
+        <% if current_user.is_group_creator %>
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#section3">管理グループ</a>
         </li>
