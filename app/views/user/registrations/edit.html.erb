@@ -5,7 +5,7 @@
   </div>
   
   <div style="width: 50%; display: flex; justify-content: center; ">
-    <div style="width: 70%; margin-top: 43px;">
+    <div style="width: 70%; margin-top: 30px;">
     <h2>パスワードの変更</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "user/shared/error_messages", resource: resource %>
@@ -45,6 +45,6 @@
 
 </div>
 
-<footer>
-  <div style="text-align:center;">©2024 Shunya Yamada. All rights reserved</div>
+<footer style="text-align:center; width: 100%; position: relative; bottom: 0; margin-top: 20px;">
+  <div>©2024 Shunya Yamada. All rights reserved</div>
 </footer>
