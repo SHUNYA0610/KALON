@@ -8,8 +8,8 @@
 
 　昨今の美容の需要の高さからこのテーマに決めました。また、自分自身も美容に興味があり、美容系会社の
 新事業の開業と公式サイトの作成と運用に携わった経験からもっと美容業界を盛り上げてていきたい
-という気持ちが強くなったのがきっかけです。  
-　ユーザーが主体とする美容系のSNSはあるようでありません。なので、より一層の美容業界の盛り上りを見込めます。  
+という気持ちが強くなったのがきっかけです。
+　ユーザーが主体とする美容系のSNSはあるようでありません。なので、より一層の美容業界の盛り上りを見込めます。
 　今回提供するサービスは一般人、有名人、企業が垣根を越えて繋がれることが特徴の一つです。
 二つ目に本サービスでのビューラー（有名人）の存在です。ある一定の条件を満たすことで誰でも
 ビューラーに昇格できるという仕組みです。ビューラー（スポンサーが付くことも想定）が情報発信することでよりユーザー同士のコ
@@ -33,16 +33,16 @@
 - 同じ価値観を持つユーザーと繋がりたいとき
 
 ## 設計書
-ER図:  
+ER図:
 https://drive.google.com/file/d/1tgIIE9hN50hl5LUd8SFuDqpCUA27ZKaW/view?usp=drive_link
 
 テーブル定義書:
-https://docs.google.com/spreadsheets/d/1t3b65PdFxvg6RT24ZPUfSnDZ9PGwhEdhAx3kNbWroQY/edit?usp=drive_link　
+https://docs.google.com/spreadsheets/d/1t3b65PdFxvg6RT24ZPUfSnDZ9PGwhEdhAx3kNbWroQY/edit?usp=drive_link
 
-詳細設計書:  
+詳細設計書:
 https://docs.google.com/spreadsheets/d/14q--gIVW5IreQatfDfC4Iq3RdC7IlZN0AdMmhbEhbh4/edit?usp=drive_link
 
-画面設計：  
+画面設計：
 https://drive.google.com/file/d/1t3HiLjgJHqV4LFsY6r5VPdMLN5VCyrU_/view?usp=sharing
 ​
 ## 開発環境
@@ -54,8 +54,8 @@ https://drive.google.com/file/d/1t3HiLjgJHqV4LFsY6r5VPdMLN5VCyrU_/view?usp=shari
 
 ## 使用素材
 　著作権を考慮し、架空のデータを扱う予定です。
-なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。  
+なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
 　バナー広告の遷移先サイトはスクール外で自身が作成したものであり、著作権保持者より本アプリに記載することを許可頂いております。
-もし、疑問点がある場合は遷移先のサイトに記載しております電話番号にお問い合わせください。代表者が直接対応致します。 
-　使用フリー素材サイト  
+もし、疑問点がある場合は遷移先のサイトに記載しております電話番号にお問い合わせください。代表者が直接対応致します。
+　使用フリー素材サイト
 https://www.pakutaso.com/
