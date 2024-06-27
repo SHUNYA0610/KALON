@@ -12,16 +12,23 @@
 
       if (commentArea && submitButton_c) {
         commentArea.addEventListener("input", function() {
-          if (commentArea.value.trim() !== "") {
-            submitButton_c.disabled = false;
-            submitButton_c.classList.remove("disabled_button");
-            submitButton_c.classList.add("enabled_button");
-          } else {
+          if (commentArea.value.trim().length > 100) {
             submitButton_c.disabled = true;
             submitButton_c.classList.remove("enabled_button");
             submitButton_c.classList.add("disabled_button");
+          } else {
+            submitButton_c.disabled = false;
+            submitButton_c.classList.remove("disabled_button");
+            submitButton_c.classList.add("enabled_button");
           }
         });
+
+        // Check on page load in case of pre-filled content
+        if (commentArea.value.trim().length > 100) {
+          submitButton_c.disabled = true;
+          submitButton_c.classList.remove("enabled_button");
+          submitButton_c.classList.add("disabled_button");
+        }
       }
     }
   }
