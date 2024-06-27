@@ -25,7 +25,7 @@
               <%= link_to '編集',edit_group_path(group), class: "btn btn-sm btn btn-outline-success" %>
             <% end %>
             <% if group.owner_id == current_user.id %>
-              <%= link_to '削除',groups_path(group),method: :delete,data: { confirm: '本当に削除しますか？' } ,class: "btn btn-sm btn-outline-danger" %>
+              <%= link_to '削除',group_path(group),method: :delete,data: { confirm: '本当に削除しますか？' } ,class: "btn btn-sm btn-outline-danger" %>
             <% end %>
           </td>
         </tr>
