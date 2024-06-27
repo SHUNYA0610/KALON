@@ -15,7 +15,7 @@
               <%= post.user.name %>
             </p>
             <%= link_to post_path(post.id) do %><strong><i class="fa-solid fa-shop"></i>　<span><%= post.shop %></span></strong><% end %>
-            <span><p class='card-text'></p><%= post.caption %></p></span>
+            <span><p class='card-text'><%= wrap_text(post.caption, 50) %></p></span>
             <% if post.category.present? %>
               <span><%=link_to post.category,tagsearches_path(content: post.category)%></span>
             <% end %>
