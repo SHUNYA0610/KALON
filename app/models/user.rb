@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_many :view_counts, dependent: :destroy
-  has_many :group_users
-  has_many :groups, through: :group_users,dependent: :destroy
+  has_many :group_users, dependent: :destroy
+  has_many :groups, through: :group_users, dependent: :destroy
   has_many :owned_groups, class_name: 'Group', foreign_key: 'owner_id'
   has_many :notifications, dependent: :destroy
   has_many :rooms, through: :entries, source: :room
