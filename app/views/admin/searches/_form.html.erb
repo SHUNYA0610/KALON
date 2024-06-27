@@ -7,22 +7,16 @@
 <% end %>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const searchContent = document.getElementById('search_content');
-    const searchSubmit = document.getElementById('search_submit');
-
-    // Initially disable the submit button if the text field is empty
-    if (searchContent.value.trim() === '') {
-      searchSubmit.disabled = true;
-    }
-
-    // Enable/disable the submit button based on text field input
-    searchContent.addEventListener('input', function() {
+  $(document).on('turbolinks:load', function() {
+      const searchContent = document.getElementById('search_content');
+      const searchSubmit = document.getElementById('search_submit');
+  
       if (searchContent.value.trim() === '') {
-        searchSubmit.disabled = true;
-      } else {
-        searchSubmit.disabled = false;
+          searchSubmit.disabled = true;
       }
-    });
+  
+      searchContent.addEventListener('input', function() {
+          searchSubmit.disabled = searchContent.value.trim() === '';
+      });
   });
 </script>

@@ -8,10 +8,11 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
+  document.addEventListener('turbolinks:load', () => {
+    // ここにJavaScriptの初期化処理を記述する
     const contentInput = document.getElementById('contentInput');
     const submitButton = document.getElementById('submitButton');
-
+  
     contentInput.addEventListener('input', function() {
       if (contentInput.value.trim() !== "") {
         submitButton.disabled = false;
