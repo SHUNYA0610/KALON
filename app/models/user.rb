@@ -14,13 +14,13 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users, dependent: :destroy
   has_many :owned_groups, class_name: 'Group', foreign_key: 'owner_id', dependent: :destroy
   has_many :notifications, dependent: :destroy
-  has_many :rooms, through: :entries, source: :room
+  has_many :rooms, through: :entries, source: :room, dependent: :destroy
 
   has_one_attached :profile_image
   has_one_attached :back_image
-  
-  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
-  validates :introduction, length: { maximum: 70 }
+
+  validates :name, uniqueness: true, length: { in: 2..20 }
+  validates :introduction, length: { maximum: 50 }
   
   def get_back_image()
     unless back_image.attached?
@@ -88,8 +88,5 @@ class User < ApplicationRecord
       User.where('name LIKE ?', '%' + content + '%')
     end
   end
-  
-  validates :name, uniqueness: true, length: { in: 2..20 }
-  validates :introduction, length: { maximum: 50 }
   
 end
