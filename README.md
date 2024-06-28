@@ -37,16 +37,19 @@
 
 ## 設計書
 ER図:  
-https://drive.google.com/file/d/1tgIIE9hN50hl5LUd8SFuDqpCUA27ZKaW/view?usp=drive_link
+https://drive.google.com/file/d/1t3HiLjgJHqV4LFsY6r5VPdMLN5VCyrU_/view?usp=sharing
 
 テーブル定義書:  
-https://docs.google.com/spreadsheets/d/1t3b65PdFxvg6RT24ZPUfSnDZ9PGwhEdhAx3kNbWroQY/edit?usp=drive_link
+https://docs.google.com/spreadsheets/d/1t3b65PdFxvg6RT24ZPUfSnDZ9PGwhEdhAx3kNbWroQY/edit?usp=sharing
 
 詳細設計書:  
-https://docs.google.com/spreadsheets/d/14q--gIVW5IreQatfDfC4Iq3RdC7IlZN0AdMmhbEhbh4/edit?usp=drive_link
+https://docs.google.com/spreadsheets/d/14q--gIVW5IreQatfDfC4Iq3RdC7IlZN0AdMmhbEhbh4/edit?usp=sharing
 
 画面設計：  
 https://drive.google.com/file/d/1t3HiLjgJHqV4LFsY6r5VPdMLN5VCyrU_/view?usp=sharing
+
+動作デモ：  
+https://drive.google.com/file/d/1JcbPU7Vu_k1orZt-33wJLq-Xkfy5HrTc/view?usp=sharing
 ​
 ## 開発環境
 - OS：Linux(CentOS)
