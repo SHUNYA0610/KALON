@@ -18,7 +18,7 @@
               <p class='card-title'>
               <%= @post.user.name %>
               </p>
-              <strong><i class="fa-solid fa-shop"></i>　<span><%= link_to admin_post_path(@post.id) do %><%= @post.shop %></span></strong><% end %>
+              <%= link_to admin_post_path(@post.id) do %><strong><i class="fa-solid fa-shop"></i>　<span><%= @post.shop %></span></strong><% end %>
               <span><p class='card-text'><%= wrap_text(@post.caption, 50) %></span>
               <% if @post.category.present? %>
                 <span><%=link_to @post.category,admin_tagsearches_path(content:@post.category)%>
