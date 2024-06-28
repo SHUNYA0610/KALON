@@ -14,16 +14,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users, dependent: :destroy
   has_many :owned_groups, class_name: 'Group', foreign_key: 'owner_id', dependent: :destroy
   has_many :notifications, dependent: :destroy
-  has_many :rooms, through: :entries, source: :room, dependent: :destroy
-
-  # コールバックを使用してroomsを削除
-  before_destroy :destroy_associated_rooms
-
-  private
-
-  def destroy_associated_rooms
-    rooms.destroy_all
-  end
+  has_many :rooms, through: :entries, source: :room
 
   has_one_attached :profile_image
   has_one_attached :back_image
