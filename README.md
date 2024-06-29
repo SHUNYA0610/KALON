@@ -49,7 +49,7 @@ https://docs.google.com/spreadsheets/d/14q--gIVW5IreQatfDfC4Iq3RdC7IlZN0AdMmhbEh
 https://drive.google.com/file/d/1t3HiLjgJHqV4LFsY6r5VPdMLN5VCyrU_/view?usp=sharing
 
 動作デモ（2024/06/29更新）：  
-https://drive.google.com/file/d/13fnn6cME5no1hdE8jDAdvQWC8bhOB1e_/view?usp=sharing
+https://drive.google.com/file/d/1JzQ9A-auYb1vEP6Z4U5nZVrzs4Y524F5/view?usp=sharing
 ​
 ## 開発環境
 - OS：Linux(CentOS)
