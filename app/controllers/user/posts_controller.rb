@@ -12,7 +12,11 @@ class User::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @banners = Banner.all
+    tags = Vision.get_image_data(post_params[:image])
     if @post.save
+      tags.each do |tag|
+        @post.tags.find_or_create_by(name: tag)
+      end
       redirect_to post_path(@post)
     else
       @user = current_user
@@ -20,6 +24,7 @@ class User::PostsController < ApplicationController
       render :index
     end
   end
+
   
   def show
     @post_detail = Post.find(params[:id])
