@@ -12,10 +12,18 @@ class User::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @banners = Banner.all
-    tags = Vision.get_image_data(post_params[:image])
+  
+    # 画像がある場合のみタグを取得
+    if post_params[:image].present?
+      tags = Vision.get_image_data(post_params[:image])
+    end
+  
     if @post.save
-      tags.each do |tag|
-        @post.tags.find_or_create_by(name: tag)
+      # 画像があり、タグが取得されている場合のみタグを関連付け
+      if tags.present?
+        tags.each do |tag|
+          @post.tags.find_or_create_by(name: tag)
+        end
       end
       redirect_to post_path(@post)
     else
