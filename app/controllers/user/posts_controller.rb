@@ -20,11 +20,11 @@ class User::PostsController < ApplicationController
   
     if @post.save
       # 画像があり、タグが取得されている場合のみタグを関連付け
-      
+      if tags.present?
         tags.each do |tag|
           @post.tags.find_or_create_by(name: tag)
         end
-      
+      end
       redirect_to post_path(@post)
     else
       @user = current_user

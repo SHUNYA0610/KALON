@@ -13,21 +13,21 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    user = User.find(params[:id])
+    user.destroy
     redirect_to admin_users_path
   end
 
   def change_is_group_creator
-    @user = User.find(params[:user_id])
+    user = User.find(params[:user_id])
 
-    if @user.is_group_creator == true
-      @user.is_group_creator = false
+    if user.is_group_creator == true
+      user.is_group_creator = false
     else
-      @user.is_group_creator = true
+      user.is_group_creator = true
     end
 
-    @user.save
+    user.save
     redirect_to admin_user_path(params[:user_id])
   end
 
