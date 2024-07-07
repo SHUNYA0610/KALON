@@ -1,5 +1,6 @@
 class User::UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
+  
 
   def index
     @users = User.all
@@ -36,6 +37,7 @@ class User::UsersController < ApplicationController
   end
 
   def edit
+    redirect_to current_user if current_user.guest?
     @user = User.find(params[:id])
     @new_post = Post.new
     @banners = Banner.all
