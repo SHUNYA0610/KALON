@@ -11,6 +11,7 @@
           <th></th>
           <th>グループ名</th>
           <th>紹介文</th>
+          <th>ビューラー</th>
           <th>メンバー</th>
           <th colspan="3"></th>
         </tr>
@@ -22,11 +23,14 @@
           <% else %>
           <td class="align-middle"><%= image_tag "no-image.jpg", size: "50x50",class: "rounded-circle" %></td>
           <% end %>
-          <td><%= @group.name %></td>
-          <td><%= @group.introduction %></td>
-          <% @group.users.each do |user| %>
-　　        <td style="list-style: none;"><%= user.name %></td>
-          <% end %>
+          <td class="align-middle"><%= @group.name %></td>
+          <td class="align-middle"><%= @group.introduction %></td>
+          <td class="align-middle"><%= link_to @group.owner.name, admin_user_path(@group.owner) %></td> <!-- オーナーの名前を表示 -->
+　　      <td class="align-middle" style="list-style: none;">
+            <% @group.users.each do |user| %>
+              <div><%= user.name %></div>
+            <% end %>
+          </td>
         </tr>
       </tbody>
       </table>
