@@ -33,7 +33,6 @@ class User::PostsController < ApplicationController
     end
   end
 
-  
   def show
     @post_detail = Post.find(params[:id])
     unless ViewCount.find_by(user_id: current_user.id, post_id: @post_detail.id)
