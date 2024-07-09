@@ -64,11 +64,22 @@ class User::GroupsController < ApplicationController
     group_users = @group.users
     @mail_title = params[:mail_title]
     @mail_content = params[:mail_content]
-    ContactMailer.send_mail(@mail_title, @mail_content,group_users).deliver
     @post = Post.new
     @banners = Banner.all
+    if validate_mail(@mail_title, @mail_content)
+      begin
+        ContactMailer.send_mail(@mail_title, @mail_content, group_users).deliver_now
+      rescue => e
+        flash[:alert] = "メールの送信に失敗しました: #{e.message}"
+        redirect_back(fallback_location: root_path)
+      end
+    else
+      flash[:alert] = "メールのタイトルまたは内容が不正です。"
+      redirect_back(fallback_location: root_path)
+    end
+    
   end
-  
+
   private
 
   def group_params
@@ -80,5 +91,9 @@ class User::GroupsController < ApplicationController
     unless @group.owner_id == current_user.id
       redirect_to groups_path
     end
+  end
+
+  def validate_mail(title, content)
+    title.present? && title.length <= 50 && content.present? && content.length <= 500
   end
 end

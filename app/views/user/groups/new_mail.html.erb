@@ -4,15 +4,20 @@
     <%= render 'layouts/sidebar' %>
 
   <div style="flex:4;">
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
     <h2>イベントメール</h2>
     <%= form_with url:group_send_mail_path(@group), method: :get, local: true do |f| %>
 
       <div class="form-group">
-        <%= f.text_field :mail_title, placeholder: "タイトル", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
+        <%= f.text_field :mail_title, placeholder: "タイトル（５０文字以内）", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
       </div>
 
       <div class="form-group">
-        <%= f.text_area :mail_content, placeholder: "コメント", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%;" %>
+        <%= f.text_area :mail_content, placeholder: "コメント（５００文字以内）", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%;" %>
       </div>
 
       <div>
