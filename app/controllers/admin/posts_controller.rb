@@ -1,5 +1,4 @@
 class Admin::PostsController < ApplicationController
-  
   def index
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
@@ -19,5 +18,4 @@ class Admin::PostsController < ApplicationController
     post.destroy
     redirect_to admin_posts_path
   end
-  
 end

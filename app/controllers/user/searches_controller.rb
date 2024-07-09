@@ -15,5 +15,4 @@ class User::SearchesController < ApplicationController
     @new_post = Post.new
     @banners = Banner.all
   end
-  
 end

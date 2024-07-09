@@ -1,5 +1,4 @@
 class Admin::UsersController < ApplicationController
-
   def index
     @users = User.all
     @user = current_user
@@ -30,5 +29,4 @@ class Admin::UsersController < ApplicationController
     user.save
     redirect_to admin_user_path(params[:user_id])
   end
-
 end

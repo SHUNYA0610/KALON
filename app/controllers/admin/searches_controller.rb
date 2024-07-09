@@ -14,5 +14,4 @@ class Admin::SearchesController < ApplicationController
     end
       @banners = Banner.all
   end
-  
 end

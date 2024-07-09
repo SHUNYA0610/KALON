@@ -5,5 +5,4 @@ class ContactMailer < ApplicationMailer
     @mail_content = mail_content
     mail bcc: group_users.pluck(:email), subject: mail_title
   end
-  
 end

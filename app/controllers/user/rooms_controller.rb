@@ -22,5 +22,4 @@ class User::RoomsController < ApplicationController
     @new_post = Post.new
     @banners = Banner.all
   end
-
 end

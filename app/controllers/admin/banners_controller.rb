@@ -1,5 +1,4 @@
 class Admin::BannersController < ApplicationController
-
   def index
     @banners = Banner.all
   end

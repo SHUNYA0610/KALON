@@ -1,5 +1,4 @@
 class Admin::GroupsController < ApplicationController
-
   def index
     @groups = Group.all
     @banners = Banner.all
@@ -15,5 +14,4 @@ class Admin::GroupsController < ApplicationController
     group.destroy
     redirect_to admin_groups_path
   end
-  
 end

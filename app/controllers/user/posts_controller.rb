@@ -79,5 +79,4 @@ class User::PostsController < ApplicationController
       redirect_to posts_path
     end
   end
-  
 end
