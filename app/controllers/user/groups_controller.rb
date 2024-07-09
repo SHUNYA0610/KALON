@@ -69,8 +69,8 @@ class User::GroupsController < ApplicationController
     if validate_mail(@mail_title, @mail_content)
       begin
         ContactMailer.send_mail(@mail_title, @mail_content, group_users).deliver_now
-      rescue
-        flash[:alert] = "メールの送信に失敗しました"
+      rescue => e
+        flash[:alert] = "メールの送信に失敗しました: #{e.message}"
         redirect_back(fallback_location: root_path)
       end
     else
