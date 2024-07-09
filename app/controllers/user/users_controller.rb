@@ -6,7 +6,7 @@ class User::UsersController < ApplicationController
     @user = current_user
     @post = Post.new
     @banners = Banner.all
-    @rooms = @user.rooms
+    @rooms = @user.entry_rooms
   end
 
   def show
