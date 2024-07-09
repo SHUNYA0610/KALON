@@ -39,7 +39,7 @@
 
       </div>
        <%= form_for(@message, :html => { :class => "row", :style => " display: flex; width: 100%;  margin-left: 0px;"} ) do |f| %>
-                <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , style: "border: 3px #D43EFF solid;padding: 8px;border-radius: 25px; margin-bottom: 10px; width: 71%; margin-left: 0 auto; margin-left: 10%;" %>
+                <%= f.text_field :message, placeholder: "メッセージを入力して下さい（１００文字以内）" , style: "border: 3px #D43EFF solid;padding: 8px;border-radius: 25px; margin-bottom: 10px; width: 71%; margin-left: 0 auto; margin-left: 10%;" %>
                 <%= f.hidden_field :room_id, value: @room.id %>
                 <%= f.submit "送信", style: "color: white; padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 10%; border: 3px white solid;; background-color: #D43EFF; "%>
               <% end %>
