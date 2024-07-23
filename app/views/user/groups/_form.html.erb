@@ -1,10 +1,10 @@
 <%= form_with model: group, local: true do |f| %>
   <div>
-    <%= f.text_field :name, placeholder: "グループ名", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
+    <%= f.text_field :name, placeholder: "グループ名（２文字以上２０文字以内）", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
   </div>
 
   <div>
-    <%= f.text_area :introduction, placeholder: "紹介文", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%;" %>
+    <%= f.text_area :introduction, placeholder: "紹介文（５０文字以内）", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%;" %>
   </div>
 
   <div>
