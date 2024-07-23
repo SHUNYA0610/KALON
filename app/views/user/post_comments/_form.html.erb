@@ -1,5 +1,5 @@
 <%= form_with model: [post, post_comment], local: false, id: "comment_form" do |f| %>
-  <%= f.text_area :comment, rows: '5', placeholder: "コメントを入力して下さい", id: "comment_area", style: "border: 3px #D43EFF solid; padding: 8px; border-radius: 25px; margin-bottom: 10px; width: 100%; margin-left: 0 auto;" %>
+  <%= f.text_area :comment, rows: '5', placeholder: "コメントを入力して下さい（１００文字以内）", id: "comment_area", style: "border: 3px #D43EFF solid; padding: 8px; border-radius: 25px; margin-bottom: 10px; width: 100%; margin-left: 0 auto;" %>
   <%= f.submit "送信", id: "submit_button_c", disabled: true, class: "disabled_button", style: "color: white; padding: 8px; border-radius: 12px; margin-bottom: 10px; width: 100%; border: 3px white solid;" %>
 <% end %>
 

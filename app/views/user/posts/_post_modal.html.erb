@@ -10,21 +10,20 @@
       </div>
       <div class="modal-body">
         <%= form_with model: post, html: { id: "specificForm" } do |f| %>
-
           <div>
-            <%= f.text_field :shop, placeholder: "ショップネーム", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; border: white;" %>
+            <%= f.text_field :shop, placeholder: "ショップネーム（２０文字以内）", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; border: white;" %>
           </div>
           <div>
             <%= text_field_tag :zipcode, nil, placeholder: "郵便番号", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; border: white;" %>
           </div>
           <div>
-            <%= f.text_field :address, placeholder: "住所", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; border: white;" %>
+            <%= f.text_field :address, placeholder: "住所（５０文字以内）", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%; border: white;" %>
           </div>
           <div>
-            <%= f.text_area :caption, placeholder: "コメント", id: "specificTextArea", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: white;" %>
+            <%= f.text_area :caption, placeholder: "コメント（２００文字以内）", id: "specificTextArea", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: white;" %>
           </div>
           <div>
-            <%= f.text_field :category, placeholder: "カテゴリー", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: white;" %>
+            <%= f.text_field :category, placeholder: "カテゴリー（２０文字以内）", style: "padding: 8px;border-radius: 12px; margin-bottom: 10px; width: 100%; border: white;" %>
           </div>
           <div>
             <%= f.label :画像 %>
