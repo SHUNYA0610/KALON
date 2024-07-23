@@ -10,7 +10,7 @@
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.text_field :name, placeholder: "アカウント名", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
+          <%= f.text_field :name, placeholder: "アカウント名（２文字以上２０文字以内）", style: "padding: 8px;border-radius: 12px; margin-bottom: 15px; width: 100%;" %>
         </div>
 
         <div class="field">
