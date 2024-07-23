@@ -43,7 +43,7 @@
     border: 3px gray solid;
     color: white;
   }
-  
+
   .enabled-button {
     background-color: #D43EFF;
     border: 3px white solid;
@@ -67,4 +67,15 @@
     });
   });
 </script>
-<%= javascript_pack_tag "jpostal",  'data-turbolinks-track': 'reload' %>
+<%#= javascript_pack_tag "jpostal",  'data-turbolinks-track': 'reload' %>
+<script>
+  function jpostal() {
+    $('#zipcode').jpostal({
+      postcode : ['#zipcode'],
+      address : {
+        '#post_address': '%3%4%5'
+      }
+    });
+  }
+  $(document).on("turbolinks:load", jpostal);
+</script>

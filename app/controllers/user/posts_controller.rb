@@ -28,7 +28,8 @@ class User::PostsController < ApplicationController
       redirect_to post_path(@post)
     else
       @user = current_user
-      @posts = Post.all
+      @posts = Post.all.order(created_at: :desc)
+      @following_posts= Post.where(user_id: [*current_user.following_ids]).order(created_at: :desc)
       render :index
     end
   end
