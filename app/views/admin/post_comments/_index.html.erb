@@ -8,9 +8,14 @@
           <%= post_comment.user.name %>
         <% end %>
       </td>
-      <td class="align-middle"><%= wrap_text(post_comment.comment, 50) %></td>
       <td class="align-middle">
-          <%= link_to "コメント削除", admin_post_post_comment_path(post, post_comment), data: { confirm: "本当に削除して宜しいですか？" }, method: :delete, class: "btn btn-sm btn-danger float-end" %>
+        <%= wrap_text(post_comment.comment, 50) %><br>
+      </td>
+      <td class="align-middle">
+        <%= link_to "コメント削除", admin_post_post_comment_path(post, post_comment), data: { confirm: "本当に削除して宜しいですか？" }, method: :delete, class: "btn btn-sm btn-danger float-end" %><br>
+        <div class="d-flex align-items-center">
+          <small class="text-muted"><%= post_comment.created_at.strftime("%Y/%m/%d %H:%M") %></small>
+        </div>
       </td>
     </tr>
     <% end %>
