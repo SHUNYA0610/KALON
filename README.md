@@ -52,7 +52,7 @@ https://drive.google.com/file/d/1t3HiLjgJHqV4LFsY6r5VPdMLN5VCyrU_/view?usp=shari
 https://drive.google.com/file/d/1JzQ9A-auYb1vEP6Z4U5nZVrzs4Y524F5/view?usp=sharing
 ​
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
