@@ -36,7 +36,7 @@
               <div>
               <% if @user == current_user %>
                 <span><%= link_to "編集", edit_post_path(@post)%></span>
-                <span><%= link_to "削除", post_path(@post), method: :delete %></span>
+                <span><%= link_to "削除", post_path(@post), data: { confirm: "本当に削除して宜しいですか？" }, method: :delete %></span>
               <% end %>
               </div>
             </div>

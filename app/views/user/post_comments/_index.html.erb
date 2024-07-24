@@ -11,7 +11,7 @@
       <td><%= wrap_text(post_comment.comment, 50) %></td>
       <td class="align-middle">
         <% if post_comment.user == current_user %>
-          <%= link_to "コメント削除", post_post_comment_path(post, post_comment), method: :delete, class: "btn btn-sm btn-danger float-end" %>
+          <%= link_to "コメント削除", post_post_comment_path(post, post_comment), data: { confirm: "本当に削除して宜しいですか？" }, method: :delete, class: "btn btn-sm btn-danger float-end" %>
         <% end %>
       </td>
     </tr>

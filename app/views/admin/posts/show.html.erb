@@ -32,7 +32,7 @@
               <span>閲覧数：<%= @post_detail.view_counts.count %></span>
               <p class="card-text">作成日時: <%= @post.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
               <div>
-                <span><%= link_to "削除", admin_post_path(@post), method: :delete %></span>
+                <span><%= link_to "削除", admin_post_path(@post), data: { confirm: "本当に削除して宜しいですか？" }, method: :delete %></span>
               </div>
             </div>
           </div>

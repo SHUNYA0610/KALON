@@ -21,7 +21,7 @@
       <span><%= @user.followings.count %>フォロー中</span>
       <span><%= @user.followers.count %>フォロワー</span>
     </div>
-    <div><%= button_to "アカウント削除", admin_user_path(user.id), data: { confirm: "本当に削除して宜しいですか?削除するとアカウントの復旧はできません。", turbo_confirm: "本当に削除して宜しいですか？削除するとアカウントの復旧はできません。" }, method: :delete %></div>
+    <div><%= button_to "アカウント削除", admin_user_path(user.id), data: { confirm: "本当に削除して宜しいですか？削除するとアカウントの復旧はできません。" }, method: :delete %></div>
     <div>
       
       <%
