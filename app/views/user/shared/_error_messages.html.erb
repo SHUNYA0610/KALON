@@ -1,9 +1,9 @@
 <% if resource.errors.any? %>
   <div id="error_explanation" data-turbo-cache="false">
     <h2>
-      <%= I18n.t("保存されませんでした",
+      <%= I18n.t("errors.template.header",
                  count: resource.errors.count,
-                 resource: resource.class.model_name.human.downcase)
+                 model: resource.class.model_name.human.downcase)
        %>
     </h2>
     <ul>

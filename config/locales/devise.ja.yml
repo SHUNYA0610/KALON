@@ -1,5 +1,9 @@
 ja:
   activerecord:
+    models:
+      user: 'ユーザー'
+      post: 'ポスト'
+      group: 'グループ'
     attributes:
       user:
         confirmation_sent_at: パスワード確認送信時刻
@@ -36,8 +40,6 @@ ja:
       group:
         name: グループ名
         introduction: 紹介文
-    models:
-      user: ユーザー
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
