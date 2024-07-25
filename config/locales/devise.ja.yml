@@ -1,9 +1,9 @@
 ja:
   activerecord:
     models:
-      user: 'ユーザー'
-      post: 'ポスト'
-      group: 'グループ'
+      user: アカウント入力内容
+      post: ポスト入力内容
+      group: グループ入力内容
     attributes:
       user:
         confirmation_sent_at: パスワード確認送信時刻
