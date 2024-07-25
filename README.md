@@ -36,13 +36,13 @@
 - 同じ価値観を持つユーザーと繋がりたいとき
 
 ## 設計書
-ER図:  
+ER図：  
 https://drive.google.com/file/d/1tgIIE9hN50hl5LUd8SFuDqpCUA27ZKaW/view?usp=sharing
 
-テーブル定義書:  
+テーブル定義書：  
 https://docs.google.com/spreadsheets/d/1t3b65PdFxvg6RT24ZPUfSnDZ9PGwhEdhAx3kNbWroQY/edit?usp=sharing
 
-詳細設計書:  
+詳細設計書：  
 https://docs.google.com/spreadsheets/d/14q--gIVW5IreQatfDfC4Iq3RdC7IlZN0AdMmhbEhbh4/edit?usp=sharing
 
 画面設計：  
