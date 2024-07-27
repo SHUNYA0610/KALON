@@ -14,6 +14,7 @@ class User::RelationshipsController < ApplicationController
 
   def followings
     user = User.find(params[:user_id])
+    @user = User.find(params[:user_id])
     @users = user.followings
     @new_post = Post.new
     @banners = Banner.all
@@ -21,6 +22,7 @@ class User::RelationshipsController < ApplicationController
 
   def followers
     user = User.find(params[:user_id])
+    @user = User.find(params[:user_id])
     @users = user.followers
     @new_post = Post.new
     @banners = Banner.all
